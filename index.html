@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rene Tapia Rivera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#F3F7F7; --bg-2:#E6F0EF; --panel:#FFFFFF; --ink:#15232D; --ink-2:#56666F; --line:#DCE6E5;
+  --teal:#0E7C74; --teal-soft:#D5ECE9; --sun:#EE7B45; --sun-soft:#FDE8DD; --grid:#DDE8E7; --land:#CBD9D6; --land-mine:#8CCBC3;
+  --logo-bg:#FFFFFF; --shadow:0 18px 40px -24px rgba(21,35,45,.35);
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --sans:"Figtree", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0E171C; --bg-2:#132229; --panel:#172630; --ink:#EAF1F0; --ink-2:#A2B1B6; --line:#26363F;
+    --teal:#4CC2B5; --teal-soft:#15332F; --sun:#F59767; --sun-soft:#3A2419; --grid:#1D2D35; --land:#26404A; --land-mine:#2B7169;
+    --logo-bg:#F6F8F8; --shadow:0 18px 40px -24px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E171C; --bg-2:#132229; --panel:#172630; --ink:#EAF1F0; --ink-2:#A2B1B6; --line:#26363F;
+  --teal:#4CC2B5; --teal-soft:#15332F; --sun:#F59767; --sun-soft:#3A2419; --grid:#1D2D35; --land:#26404A; --land-mine:#2B7169;
+  --logo-bg:#F6F8F8; --shadow:0 18px 40px -24px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;padding-inline:clamp(16px,4vw,48px)}
+.wrap{max-width:1180px;margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;text-wrap:balance;margin:0;letter-spacing:-.02em}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--teal);background:var(--teal-soft);padding:6px 14px;border-radius:999px}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px color-mix(in srgb,var(--teal) 25%,transparent);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--teal) 0%,transparent)}}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin-inline:calc(-1*clamp(16px,4vw,48px));padding:12px clamp(16px,4vw,48px);background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px)}
+.bar .wrap{display:flex;align-items:center;gap:20px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:18px;text-decoration:none;color:var(--ink)}
+.brand img{width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:50% 20%}
+.bar nav{display:flex;gap:4px;flex-wrap:wrap}
+.bar nav a{font-size:14px;font-weight:500;color:var(--ink-2);text-decoration:none;padding:7px 12px;border-radius:999px}
+.bar nav a:hover{background:var(--panel);color:var(--ink)}
+.bar nav a.cta{background:var(--ink);color:var(--bg)}
+@media (max-width:760px){.bar nav a:not(.cta){display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(32px,6vw,72px) clamp(40px,6vw,64px)}
+.hero h1{font-size:clamp(40px,5.6vw,72px);line-height:1;margin-top:20px;font-weight:800}
+.hero h1 .hl{background:linear-gradient(100deg,var(--teal),var(--sun));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lede{font-size:clamp(18px,1.7vw,21px);color:var(--ink-2);max-width:54ch;margin:22px 0 0}
+.hero .lede b{color:var(--ink);font-weight:600}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font:600 15px var(--sans);text-decoration:none;border:2px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.solid{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateY(3px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chips span{font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--ink-2)}
+.chips span.next{background:var(--sun-soft);color:var(--sun);border-color:transparent;font-weight:600}
+
+.photo{position:relative;max-width:420px;width:100%;justify-self:center}
+.photo .blob{position:absolute;inset:6% -4% -4% 6%;border-radius:36px;background:linear-gradient(145deg,var(--teal),var(--sun));transform:rotate(4deg)}
+.photo img{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:32px;box-shadow:var(--shadow)}
+.float{position:absolute;background:var(--panel);border-radius:18px;padding:12px 16px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;animation:bob 5s ease-in-out infinite}
+.float b{font-family:var(--display);font-size:28px;line-height:1;color:var(--teal)}
+.float span{font-size:13px;line-height:1.25;color:var(--ink-2);max-width:12ch}
+.float.f1{left:-28px;top:14%}
+.float.f2{right:-20px;bottom:10%;animation-delay:-2.5s}
+.float.f2 b{color:var(--sun)}
+@keyframes bob{50%{transform:translateY(-8px)}}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.photo{order:-1;max-width:270px}.float.f1{left:-8px}.float.f2{right:-8px}}
+
+/* logo marquee */
+.marquee{margin-inline:calc(-1*clamp(16px,4vw,48px));padding-block:26px;overflow:hidden;background:var(--panel);border-block:1px solid var(--line);position:relative}
+.marquee p{text-align:center;margin:0 0 16px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.track{display:flex;gap:18px;width:max-content;animation:slide 40s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.track .lg{width:150px;height:84px;border-radius:16px;background:var(--logo-bg);border:1px solid var(--line);display:grid;place-items:center;padding:12px;flex:0 0 auto}
+.track .lg img{max-width:100%;max-height:100%;object-fit:contain}
+.track .lg.full{padding:0;overflow:hidden}
+.track .lg.full img{width:100%;height:100%;object-fit:cover}
+@keyframes slide{to{transform:translateX(-50%)}}
+.marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.marquee::before{left:0;background:linear-gradient(90deg,var(--panel),transparent)}
+.marquee::after{right:0;background:linear-gradient(-90deg,var(--panel),transparent)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-block:clamp(48px,7vw,80px)}
+.stat{background:var(--panel);border-radius:22px;padding:24px;border:1px solid var(--line)}
+.stat b{font-family:var(--display);font-size:clamp(40px,4.6vw,56px);line-height:1;display:block;font-variant-numeric:tabular-nums}
+.stat:nth-child(odd) b{color:var(--teal)}
+.stat:nth-child(even) b{color:var(--sun)}
+.stat span{font-size:15px;color:var(--ink-2);display:block;margin-top:8px}
+@media (max-width:820px){.stats{grid-template-columns:1fr 1fr}}
+
+/* section heads */
+section{scroll-margin-top:80px}
+.shead{text-align:center;max-width:720px;margin:0 auto 40px}
+.shead h2{font-size:clamp(34px,4.4vw,52px);line-height:1.05;margin-top:14px}
+.shead p{color:var(--ink-2);margin:14px auto 0;max-width:56ch}
+
+/* journey */
+.journey{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,48px);align-items:start;margin-bottom:clamp(72px,10vw,120px)}
+.mapbox{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);background:var(--panel);border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:var(--shadow)}
+.mapbox svg{display:block;width:100%;height:auto;border-radius:16px;background:var(--bg-2)}
+.maphead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.maphead .lbl{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.maphead .where{font-family:var(--display);font-weight:700;font-size:28px;line-height:1.1}
+.maphead .coord{font-size:12px;color:var(--ink-2);text-align:right;font-variant-numeric:tabular-nums;background:var(--bg);padding:6px 10px;border-radius:10px}
+.gl{stroke:var(--grid);stroke-width:1;fill:none}
+.land{fill:var(--land);stroke:var(--bg-2);stroke-width:.4;stroke-linejoin:round}
+.land.mine{fill:var(--land-mine)}
+.legend{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-2);margin-top:12px}
+.legend .sw{width:14px;height:10px;border-radius:3px;background:var(--land-mine)}
+.gtxt{font-family:var(--sans);font-size:9px;fill:var(--ink-2);opacity:.8}
+.ocean{font-family:var(--display);font-size:15px;fill:var(--ink-2);opacity:.45;letter-spacing:.2em}
+.seg{fill:none;stroke:url(#routeGrad);stroke-width:3;stroke-linecap:round;transition:stroke-dashoffset 1s ease}
+.seg-ghost{fill:none;stroke:var(--ink-2);opacity:.35;stroke-width:1.2;stroke-dasharray:3 5}
+.city{cursor:pointer}
+.city circle.dot{fill:var(--panel);stroke:var(--ink-2);stroke-width:2;transition:all .3s}
+.city circle.halo{fill:var(--sun);opacity:0;transition:opacity .3s}
+.city text{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2);paint-order:stroke;stroke:var(--bg-2);stroke-width:4px}
+.city.done circle.dot{fill:var(--teal);stroke:var(--teal)}
+.city.on circle.dot{fill:var(--sun);stroke:var(--panel);stroke-width:2.5;r:7}
+.city.on circle.halo{opacity:.25;animation:ping 1.8s ease-out infinite;transform-box:fill-box;transform-origin:center}
+.city.on text{fill:var(--ink);font-weight:700}
+@keyframes ping{0%{transform:scale(.6);opacity:.4}100%{transform:scale(1.6);opacity:0}}
+.progress{height:6px;background:var(--bg-2);border-radius:3px;margin-top:18px;overflow:hidden}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--sun));border-radius:3px;transition:width .6s ease}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+.nav-row .count{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.nav-row .count b{color:var(--ink)}
+.arrows{display:flex;gap:8px}
+.arrows button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer;transition:background .2s,color .2s}
+.arrows button:hover{background:var(--ink);color:var(--bg)}
+.hint{font-size:12.5px;color:var(--ink-2);margin-top:12px}
+kbd{font-family:var(--sans);font-weight:600;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 6px;font-size:11px;background:var(--bg)}
+@media (max-width:900px){.journey{grid-template-columns:1fr}.mapbox{position:relative;top:auto;padding:14px}.maphead .where{font-size:22px}.hint{display:none}}
+
+.chapters{display:flex;flex-direction:column;gap:26px}
+.ch{--c:var(--teal);background:var(--panel);border:1px solid var(--line);border-radius:26px;overflow:hidden;transition:transform .35s,box-shadow .35s,border-color .35s;scroll-margin-top:96px}
+.ch.on{box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--c) 55%,var(--line));transform:translateY(-2px)}
+.ch-head{display:flex;gap:18px;align-items:center;padding:22px clamp(20px,3vw,30px);background:linear-gradient(120deg,color-mix(in srgb,var(--c) 16%,var(--panel)),color-mix(in srgb,var(--c) 4%,var(--panel)))}
+.logo{flex:0 0 auto;width:84px;height:84px;background:var(--logo-bg);border-radius:20px;display:grid;place-items:center;padding:10px;box-shadow:0 6px 16px -8px rgba(0,0,0,.25)}
+.logo img{max-width:100%;max-height:100%;object-fit:contain}
+.logo.wide{width:150px;padding:12px}
+.logo.full{padding:0;overflow:hidden}
+.logo.full img{width:100%;height:100%;object-fit:cover}
+.upnext{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#fff;background:var(--sun);padding:4px 10px;border-radius:999px;margin-bottom:6px}
+.ch .kind{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c);filter:saturate(1.1)}
+.ch h3{font-size:clamp(23px,2.4vw,28px);line-height:1.12;margin-top:4px}
+.ch-body{padding:22px clamp(20px,3vw,30px) 26px}
+.ch .org{font-weight:700}
+.ch .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.ch .meta span{font-size:13px;font-weight:500;background:var(--bg);border-radius:999px;padding:4px 12px;color:var(--ink-2)}
+.ch ul{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.ch li{padding-left:28px;position:relative;max-width:64ch}
+.ch li::before{content:"";position:absolute;left:4px;top:.55em;width:12px;height:12px;border-radius:50%;background:color-mix(in srgb,var(--c) 22%,transparent);box-shadow:inset 0 0 0 3px var(--c)}
+.promo{display:flex;align-items:center;gap:10px;margin-top:16px;flex-wrap:wrap}
+.promo span{font-size:13.5px;font-weight:600;padding:6px 12px;border-radius:10px;background:var(--bg)}
+.promo span.up{background:var(--sun-soft);color:var(--sun)}
+.promo i{font-style:normal;color:var(--sun);font-weight:700}
+.intro{margin:16px 0 0;color:var(--ink-2);max-width:64ch}
+.wins{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.wins div{background:color-mix(in srgb,var(--c) 9%,var(--panel));border:1px solid color-mix(in srgb,var(--c) 22%,var(--line));border-radius:14px;padding:12px 14px}
+.wins b{display:block;font-family:var(--display);font-size:22px;line-height:1.1;color:var(--c)}
+.wins span{display:block;font-size:13px;color:var(--ink-2);margin-top:4px;line-height:1.35}
+.ptabs{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px;padding:5px;background:var(--bg);border-radius:14px}
+.ptabs button{flex:1 1 auto;border:0;background:transparent;border-radius:10px;padding:9px 12px;font:600 13.5px var(--sans);color:var(--ink-2);cursor:pointer}
+.ptabs button[aria-selected="true"]{background:var(--panel);color:var(--ink);box-shadow:0 2px 8px -4px rgba(0,0,0,.25)}
+.ppanel{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.ppanel[hidden]{display:none}
+.prow{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:baseline}
+.prow em{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+.prow p{margin:0;font-size:15.5px}
+@media (max-width:560px){.wins{grid-template-columns:1fr}.prow{grid-template-columns:1fr;gap:2px}}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tags span{font-size:13px;font-weight:500;border-radius:999px;padding:5px 12px;color:var(--ink);background:color-mix(in srgb,var(--c) 10%,var(--panel));border:1px solid color-mix(in srgb,var(--c) 25%,var(--line))}
+.takeaway{margin-top:20px;padding:16px 18px;background:var(--sun-soft);border-radius:16px;display:flex;gap:14px;align-items:flex-start}
+.takeaway .ic{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--sun);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px}
+.takeaway b{display:block;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--sun)}
+.takeaway p{margin:2px 0 0;font-size:15.5px}
+@media (max-width:520px){.ch-head{flex-direction:column;align-items:flex-start}.logo{width:72px;height:72px}}
+
+/* capabilities */
+/* AI band */
+.ai-band{position:relative;overflow:hidden;border-radius:32px;padding:clamp(26px,5vw,56px);margin-bottom:clamp(72px,10vw,120px);background:linear-gradient(140deg,#102A33,#0D4F4A 60%,#18373F);color:#EEF5F4}
+.ai-band::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.2px);background-size:22px 22px;mask-image:linear-gradient(120deg,transparent 30%,#000);-webkit-mask-image:linear-gradient(120deg,transparent 30%,#000);pointer-events:none}
+.ai-band > *{position:relative}
+.pill-light{background:rgba(255,255,255,.12);color:#9FE3D9}
+.ai-intro h2{font-size:clamp(32px,4.2vw,50px);line-height:1.05;margin-top:14px;max-width:18ch}
+.ai-intro p{color:rgba(238,245,244,.8);max-width:60ch;margin:16px 0 0}
+.ai-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:34px}
+.ai-step{display:flex;gap:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:20px;transition:background .25s,transform .25s}
+.ai-step:hover{background:rgba(255,255,255,.11);transform:translateY(-3px)}
+.ai-step .n{flex:0 0 auto;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-family:var(--display);font-weight:800;background:#F7A77E;color:#15232D}
+.ai-step h3{font-size:20px;color:#fff}
+.ai-step p{margin:6px 0 8px;font-size:15px;color:rgba(238,245,244,.82)}
+.ai-step small{font-size:12.5px;color:#9FE3D9;font-weight:500}
+.ai-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:26px;font-size:14px;font-weight:600}
+.ai-foot .c{font-weight:500;font-size:13px;padding:6px 12px;border-radius:999px;background:rgba(247,167,126,.16);color:#FBC3A6}
+@media (max-width:760px){.ai-steps{grid-template-columns:1fr}}
+
+.caps{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:clamp(72px,10vw,120px)}
+.cap{background:var(--panel);border:1px solid var(--line);border-radius:26px;padding:28px;transition:transform .25s,box-shadow .25s}
+.cap:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.cap .badge{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;margin-bottom:18px}
+.cap .badge svg{width:26px;height:26px}
+.cap:nth-child(1) .badge{background:var(--teal-soft);color:var(--teal)}
+.cap:nth-child(2) .badge{background:var(--sun-soft);color:var(--sun)}
+.cap:nth-child(3) .badge{background:color-mix(in srgb,#6B5BD2 16%,var(--panel));color:#6B5BD2}
+.cap:nth-child(4) .badge{background:color-mix(in srgb,#2E9E48 16%,var(--panel));color:#2E9E48}
+.cap h3{font-size:24px}
+.cap p{color:var(--ink-2);font-size:15.5px;margin:6px 0 16px}
+.cap ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.cap li{display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--bg);border-radius:12px;padding:10px 14px;font-size:15px;font-weight:500}
+.cap li small{font-size:12px;color:var(--ink-2);font-weight:500;text-align:right}
+@media (max-width:760px){.caps{grid-template-columns:1fr}}
+
+/* industries */
+.inds{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:clamp(72px,10vw,120px)}
+.ind{--c:var(--teal);position:relative;border-radius:24px;padding:22px;background:var(--panel);border:1px solid var(--line);overflow:hidden;transition:transform .25s}
+.ind:hover{transform:translateY(-4px) rotate(-.5deg)}
+.ind::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:color-mix(in srgb,var(--c) 14%,transparent)}
+.ind .lg{position:relative;z-index:1;width:64px;height:64px;border-radius:16px;background:var(--logo-bg);display:grid;place-items:center;padding:8px;box-shadow:0 6px 16px -8px rgba(0,0,0,.25)}
+.ind .lg img{max-width:100%;max-height:100%;object-fit:contain}
+.ind h4{font-size:22px;margin:18px 0 6px}
+.ind p{margin:0;font-size:15px;color:var(--ink-2)}
+@media (max-width:900px){.inds{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.inds{grid-template-columns:1fr}}
+
+/* education */
+.edu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.edu{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.edu .lg{height:88px;border-radius:16px;background:var(--logo-bg);display:grid;place-items:center;padding:10px;border:1px solid var(--line)}
+.edu .lg img{max-width:100%;max-height:68px;object-fit:contain}
+.edu .lg.full{padding:0;overflow:hidden}
+.edu .lg.full img{width:100%;height:88px;max-height:none;object-fit:cover}
+.edu .d{font-size:12.5px;font-weight:600;color:var(--teal);font-variant-numeric:tabular-nums}
+.edu b{font-family:var(--display);font-size:18px;line-height:1.2}
+.edu span{color:var(--ink-2);font-size:14.5px}
+@media (max-width:900px){.edu-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.edu-grid{grid-template-columns:1fr}}
+.extra{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0 clamp(72px,10vw,120px)}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:26px}
+.box h3{font-size:22px;margin-bottom:12px}
+.lang{display:grid;grid-template-columns:84px 1fr 60px;gap:14px;align-items:center;padding:10px 0}
+.lang b{font-weight:600}
+.meter{height:10px;background:var(--bg-2);border-radius:5px;overflow:hidden}
+.meter span{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--sun));border-radius:5px}
+.lang small{font-size:13px;color:var(--ink-2);text-align:right}
+.cert{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.cert:first-of-type{border-top:0}
+.cert b{font-weight:600;display:block}
+.cert span{font-size:14px;color:var(--ink-2)}
+.cert em{font-style:normal;font-size:12px;font-weight:600;white-space:nowrap;align-self:start;padding:3px 10px;border-radius:999px;background:var(--teal-soft);color:var(--teal)}
+@media (max-width:820px){.extra{grid-template-columns:1fr}}
+
+/* contact */
+.contact{position:relative;overflow:hidden;background:linear-gradient(135deg,#0B5E58,#15323A 55%,#3A2A2A);color:#F4F8F7;border-radius:32px;padding:clamp(28px,5vw,64px);margin-bottom:40px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.contact::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(238,123,69,.45),transparent 70%);right:-120px;top:-160px}
+.contact > *{position:relative}
+.contact h2{font-size:clamp(38px,5vw,62px);line-height:1.02}
+.contact h2 span{color:#F7A77E}
+.contact p{color:rgba(244,248,247,.8);max-width:46ch;margin-top:14px}
+.contact .me{display:flex;align-items:center;gap:14px;margin-top:22px}
+.contact .me img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:3px solid rgba(255,255,255,.3)}
+.contact .me b{display:block}
+.contact .me span{font-size:14px;color:rgba(244,248,247,.7)}
+.cards{display:flex;flex-direction:column;gap:12px}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
+.crow .k{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(244,248,247,.6)}
+.crow .v{font-size:16.5px;font-weight:500;user-select:all;word-break:break-all;color:#F4F8F7}
+.crow a.v{text-decoration:none}
+.copy,.go{background:#F4F8F7;border:0;color:#15323A;border-radius:999px;padding:8px 14px;font:600 13px var(--sans);cursor:pointer;white-space:nowrap;text-decoration:none}
+.copy:hover,.go:hover{background:#F7A77E}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* entrance */
+@keyframes rise{from{transform:translateY(16px)}to{transform:none}}
+.hero > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero > *:nth-child(2){animation-delay:.15s}
+</style>
+</head>
+<body>
+
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="img/rene.jpg" alt="">Rene Tapia Rivera</a>
+    <nav aria-label="Sections">
+      <a href="#journey">Journey</a>
+      <a href="#ai">AI &amp; leadership</a>
+      <a href="#capabilities">Skills</a>
+      <a href="#industries">Industries</a>
+      <a href="#education">Education</a>
+      <a class="cta" href="#contact">Let’s talk</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <section class="hero">
+    <div>
+      <span class="pill"><span class="dot"></span>Open to global strategy, consulting &amp; AI transformation roles</span>
+      <h1>Hi, I’m Rene.<br>Engineer by training, <span class="hl">strategist</span> by trajectory.</h1>
+      <p class="lede">I’ve worked inside <b>semiconductor fabs</b>, <b>freight operations</b>, <b>enterprise software sales</b> and <b>food distribution analytics</b> in Mexico and the U.S., and studied in Germany and Spain. That range helps me see how a strategy holds up on the shop floor, in the supply chain and in front of the client. Now I’m focused on <b>how AI is changing the way global companies operate</b>, and how to lead people through that change.</p>
+      <div class="cta-row">
+        <a class="btn solid" href="#journey">Take the tour <span class="arr">↓</span></a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+      <div class="chips">
+        <span>Industrial Engineer</span><span>AI strategy &amp; adoption</span><span>Master of Global Management, Thunderbird</span><span>Phoenix, AZ</span><span class="next">Next: Global Challenge Lab, Hong Kong</span>
+      </div>
+    </div>
+    <div class="photo">
+      <div class="blob" aria-hidden="true"></div>
+      <img src="img/rene.jpg" alt="Portrait of Rene Tapia Rivera">
+      <div class="float f1"><b>4</b><span>countries lived &amp; studied in</span></div>
+      <div class="float f2"><b>3</b><span>languages spoken</span></div>
+    </div>
+  </section>
+
+  <section class="marquee" aria-label="Companies and schools">
+    <p>Where I’ve worked and studied</p>
+    <div class="track" id="track">
+      <div class="lg"><img src="img/tel.png" alt="Tokyo Electron"></div>
+      <div class="lg"><img src="img/thunderbird.png" alt="Thunderbird School of Global Management"></div>
+      <div class="lg"><img src="img/odoo.png" alt="Odoo"></div>
+      <div class="lg"><img src="img/tec.png" alt="Tecnológico de Monterrey"></div>
+      <div class="lg"><img src="img/chrobinson.png" alt="C.H. Robinson"></div>
+      <div class="lg"><img src="img/comillas.png" alt="Universidad Pontificia Comillas"></div>
+      <div class="lg"><img src="img/shamrock.png" alt="Shamrock Foods Company"></div>
+      <div class="lg full"><img src="img/cbs.png" alt="CBS International Business School"></div>
+      <div class="lg"><img src="img/sourcinggpt.png" alt="SourcingGPT.ai"></div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="At a glance">
+    <div class="stat"><b>4</b><span>industries, from semiconductors to food distribution</span></div>
+    <div class="stat"><b>4</b><span>countries: Mexico, U.S., Germany, Spain</span></div>
+    <div class="stat"><b>~100</b><span>leaders, including the president, heard my team’s recommendations at Shamrock</span></div>
+    <div class="stat"><b>12</b><span>months from representative to lead at C.H. Robinson</span></div>
+  </section>
+
+  <section id="journey">
+    <div class="shead">
+      <span class="pill">The journey</span>
+      <h2>Nine chapters, six cities, one direction</h2>
+      <p>Scroll through the story, tap a city on the map, or use the arrows. Each stop shows what I did and what it taught me about running a business.</p>
+    </div>
+
+    <div class="journey">
+      <aside class="mapbox" aria-label="Career map">
+        <div class="maphead">
+          <div><div class="lbl">Now viewing</div><div class="where" id="where">Monterrey</div></div>
+          <div class="coord" id="coord">25.67° N<br>100.31° W</div>
+        </div>
+        <svg viewBox="0 0 600 250" role="img" aria-label="Map of career locations: Monterrey, Madrid, Cologne, San Francisco, Phoenix and Hong Kong" id="map">
+          <defs><linearGradient id="routeGrad" x1="0" x2="1"><stop offset="0" stop-color="var(--teal)"/><stop offset="1" stop-color="var(--sun)"/></linearGradient></defs>
+          <g id="grat"></g>
+          <g id="land"></g>
+          <text class="ocean" x="222" y="150" text-anchor="middle">ATLANTIC</text>
+          <text class="ocean" x="14" y="200">PACIFIC</text>
+          <text class="ocean" x="470" y="236" text-anchor="middle">INDIAN</text>
+          <g id="ghost"></g>
+          <g id="route"></g>
+          <g id="cities"></g>
+        </svg>
+        <div class="legend"><span class="sw"></span>Countries where I’ve lived, worked or studied</div>
+        <div class="progress"><span id="prog"></span></div>
+        <div class="nav-row">
+          <div class="count">Chapter <b id="num">1</b> of <b id="tot">9</b></div>
+          <div class="arrows">
+            <button type="button" id="prev" aria-label="Previous chapter">←</button>
+            <button type="button" id="next" aria-label="Next chapter">→</button>
+          </div>
+        </div>
+        <div class="hint">Presenting? Press <kbd>←</kbd> <kbd>→</kbd> on your keyboard.</div>
+      </aside>
+
+      <div class="chapters" id="chapters">
+
+        <article class="ch" data-city="mty" style="--c:#1F3FAF">
+          <div class="ch-head">
+            <div class="logo"><img src="img/tec.png" alt="Tecnológico de Monterrey logo"></div>
+            <div><span class="kind">Foundation</span><h3>Learning to think in systems</h3></div>
+          </div>
+          <div class="ch-body">
+            <div class="org">Tecnológico de Monterrey (ITESM)</div>
+            <div class="meta"><span>Monterrey, Mexico</span><span>Aug 2016 – Aug 2021</span></div>
+            <ul>
+              <li>Bachelor in Industrial Engineering with a Minor in Systems.</li>
+              <li>Trained in process design, operations and data-driven decision making.</li>
+            </ul>
+            <div class="takeaway"><div class="ic">→</div><div><b>Why it matters</b><p>Every recommendation I make starts with how the process actually runs, and ends with numbers that prove it works.</p></div></div>
+          </div>
+        </article>
+
+        <article class="ch" data-city="mad" style="--c:#C9941E">
+          <div class="ch-head">
+            <div class="logo"><img src="img/comillas.png" alt="Universidad Pontificia Comillas logo"></div>
+            <div><span class="kind">Global exposure</span><h3>My first look at business strategy</h3></div>
+          </div>
+          <div class="ch-body">
+            <div class="org">Pontifical University of Comillas</div>
+            <div class="meta"><span>Madrid, Spain</span><span>Aug 2018</span></div>
+            <ul>
+              <li>International Summer Program in Business Strategy.</li>
+              <li>Studied competitive strategy with an international group of students.</li>
+            </ul>
+            <div class="takeaway"><div class="ic">→</div><div><b>Why it matters</b><p>This is where engineering questions became strategy questions: where to compete, and how to win.</p></div></div>
+          </div>
+        </article>
+
+        <article class="ch" data-city="cgn" style="--c:#5B2A9A">
+          <div class="ch-head">
+            <div class="logo full"><img src="img/cbs.png" alt="CBS International Business School logo"></div>
+            <div><span class="kind">Global exposure</span><h3>International business, from Europe</h3></div>
+          </div>
+          <div class="ch-body">
+            <div class="org">Cologne Business School</div>
+            <div class="meta"><span>Cologne, Germany</span><span>Jan 2020 – Aug 2020</span></div>
+            <ul>
+              <li>International Business exchange semester.</li>
+              <li>Lived and studied in Germany through the start of COVID-19, adapting to remote, cross-border teamwork.</li>
+            </ul>
+            <div class="takeaway"><div class="ic">→</div><div><b>Why it matters</b><p>I learned to work across cultures and time zones, which is the daily reality of global strategy work.</p></div></div>
+          </div>
+        </article>
+
+        <article class="ch" data-city="mty" style="--c:#0098D8">
+          <div class="ch-head">
+            <div class="logo"><img src="img/chrobinson.png" alt="C.H. Robinson logo"></div>
+            <div><span class="kind">Operations · Supply chain</span><h3>Running freight at scale</h3></div>
+          </div>
+          <div class="ch-body">
+            <div class="org">TMC, a division of C.H. Robinson</div>
+            <div class="meta"><span>Monterrey, Mexico</span><span>May 2021 – Apr 2023</span></div>
+            <div class="promo"><span>Logistics Representative</span><i>→</i><span class="up">Logistics Lead · May 2022</span></div>
+            <ul>
+              <li>Led supply chain operations for high-volume clients, owning delivery performance, on-time shipments and efficiency.</li>
+              <li>Implemented initiatives to reduce delays, improve routing efficiency and raise team productivity.</li>
+              <li>Monitored KPIs in advanced supply chain software to spot trends and lift service levels.</li>
+              <li>Coordinated vendors, clients and internal teams in real time to keep shipments moving.</li>
+            </ul>
+            <div class="tags"><span>KPI management</span><span>Routing optimization</span><span>Supply chain technology</span><span>Vendor relations</span><span>Team leadership</span></div>
+            <div class="takeaway"><div class="ic">→</div><div><b>Why it matters</b><p>I know what a supply chain looks like under pressure, and which levers actually move cost and service.</p></div></div>
+          </div>
+        </article>
+
+        <article class="ch" data-city="sfo" style="--c:#875A7B">
+          <div class="ch-head">
+            <div class="logo"><img src="img/odoo.png" alt="Odoo logo"></div>
+            <div><span class="kind">Client-facing · Enterprise software</span><h3>Solving client problems with software</h3></div>
+          </div>
+          <div class="ch-body">
+            <div class="org">Odoo Inc. · Product Sales Engineer</div>
+            <div class="meta"><span>San Francisco, CA</span><span>Jun 2023 – Aug 2024</span></div>
+            <ul>
+              <li>Designed tailored ERP solutions that matched software capabilities to each client’s business needs.</li>
+              <li>Managed key accounts and consistently exceeded sales goals while building long-term relationships.</li>
+              <li>Bridged technical teams and end users to speed up onboarding, training and adoption.</li>
+            </ul>
+            <div class="tags"><span>Solution design</span><span>Key accounts</span><span>ERP &amp; automation</span><span>Digital transformation</span><span>Change management</span></div>
+            <div class="takeaway"><div class="ic">→</div><div><b>Why it matters</b><p>This was consulting in practice: understand the business, design the fix, and help people adopt it. Rolling out an ERP is digital transformation, the same adoption challenge companies now face with AI.</p></div></div>
+          </div>
+        </article>
+
+        <article class="ch" data-city="phx" style="--c:#1A8FD0">
+          <div class="ch-head">
+            <div class="logo"><img src="img/tel.png" alt="Tokyo Electron logo"></div>
+            <div><span class="kind">Advanced manufacturing</span><h3>Delivering inside the world’s most demanding fabs</h3></div>
+          </div>
+          <div class="ch-body">
+            <div class="org">Tokyo Electron · Field Engineer</div>
+            <div class="meta"><span>Phoenix, AZ</span><span>Aug 2024 – Jul 2025</span></div>
+            <ul>
+              <li>Installed, hooked up and maintained Clean Track equipment for semiconductor manufacturing.</li>
+              <li>Managed and guided sub-teams on TSMC projects, delivering on time under high pressure.</li>
+              <li>Ran in-depth root cause analysis to optimize tool performance and support continuous improvement.</li>
+            </ul>
+            <div class="tags"><span>Root cause analysis</span><span>TSMC projects</span><span>Team leadership</span><span>Automated manufacturing</span><span>Continuous improvement</span></div>
+            <div class="takeaway"><div class="ic">→</div><div><b>Why it matters</b><p>I’ve seen the U.S. semiconductor buildout from the inside. These chips power the AI economy, and I know what it takes to deliver them.</p></div></div>
+          </div>
+        </article>
+
+        <article class="ch" data-city="phx" style="--c:#16336B">
+          <div class="ch-head">
+            <div class="logo"><img src="img/thunderbird.png" alt="Thunderbird School of Global Management logo"></div>
+            <div><span class="kind">Now · Global management &amp; AI</span><h3>Leading global business in the age of AI</h3></div>
+          </div>
+          <div class="ch-body">
+            <div class="org">Thunderbird School of Global Management</div>
+            <div class="meta"><span>Phoenix, AZ</span><span>Aug 2025 – Present</span></div>
+            <ul>
+              <li>Master of Global Management, focused on global strategy and business strategy.</li>
+              <li>Studying AI strategy and digital transformation: where AI creates value, how global organizations adopt it, and how to measure the impact.</li>
+              <li>Developing management and leadership skills for cross-cultural teams and organizational change.</li>
+              <li>Building consulting skills in Excel modeling (Management Consulted), PostgreSQL and Tableau.</li>
+            </ul>
+            <div class="tags"><span>AI strategy</span><span>Digital transformation</span><span>Global strategy</span><span>Leadership &amp; management</span><span>Data &amp; modeling</span></div>
+            <div class="takeaway"><div class="ic">→</div><div><b>Why it matters</b><p>Thunderbird adds the global and AI strategy lens on top of hands-on operations experience, so I can connect new technology to real business results.</p></div></div>
+          </div>
+        </article>
+
+        <article class="ch" data-city="phx" style="--c:#2E9E48">
+          <div class="ch-head">
+            <div class="logo"><img src="img/shamrock.png" alt="Shamrock Foods Company logo"></div>
+            <div><span class="kind">Operations analytics · Food distribution</span><h3>Turning operational data into decisions</h3></div>
+          </div>
+          <div class="ch-body">
+            <div class="org">Shamrock Foods Company · Operations Analytics, Business Analyst</div>
+            <div class="meta"><span>Phoenix, AZ</span><span>May 31 – Jul 31, 2026</span></div>
+            <p class="intro">Shamrock is one of the largest privately held foodservice distributors in the U.S. On the Operations Analytics team, I led two individual projects and one team project, working in Databricks (SQL), Power BI and Excel.</p>
+            <div class="wins">
+              <div><b>Live tool</b><span>my labor model went into production for supervisors</span></div>
+              <div><b>30+</b><span>stakeholder interviews across 7 departments</span></div>
+              <div><b>~100</b><span>leaders, incl. the president, at our final presentation</span></div>
+            </div>
+            <div class="ptabs" role="tablist" aria-label="Shamrock projects">
+              <button type="button" role="tab" aria-selected="true" aria-controls="pt1" id="pb1">Labor planning model</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="pt2" id="pb2">Driver bid optimization</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="pt3" id="pb3">Recall fee strategy</button>
+            </div>
+            <div class="ppanel" role="tabpanel" id="pt1" aria-labelledby="pb1">
+              <div class="prow"><em>Problem</em><p>Warehouse staffing in Arizona and Colorado was set by supervisor intuition, causing overtime on light days and dock congestion on peak days.</p></div>
+              <div class="prow"><em>What I did</em><p>Analyzed two years of inbound data in SQL to forecast volume by day, shift and zone. Built productivity benchmarks per position, turned them into a labor formula, and designed a Power BI planning dashboard for supervisors. Validated the model against history and with supervisor feedback.</p></div>
+              <div class="prow"><em>Result</em><p>Published in Shamrock’s Power BI environment as a production tool. Supervisors started using it right away, and leadership said it exceeded expectations.</p></div>
+            </div>
+            <div class="ppanel" role="tabpanel" id="pt2" aria-labelledby="pb2" hidden>
+              <div class="prow"><em>Problem</em><p>Weekly driver schedules (“bids”) were built by hand. Fewer, better bids mean lower labor cost and better driver retention in a tight labor market.</p></div>
+              <div class="prow"><em>What I did</em><p>Framed bid building as a constrained optimization problem with DOT rest rules, weekly hour limits, license classes and days off. Cross-checked planned against GPS-tracked route times to set safe buffers, then built a greedy heuristic with a local search improvement step.</p></div>
+              <div class="prow"><em>Result</em><p>Delivered a documented, repeatable framework and data pipeline for the transportation planning team. The team said the analysis exceeded expectations.</p></div>
+            </div>
+            <div class="ppanel" role="tabpanel" id="pt3" aria-labelledby="pb3" hidden>
+              <div class="prow"><em>Problem</em><p>Were Shamrock’s fees for product recalls and withdrawals covering the true cost, and being billed and collected consistently?</p></div>
+              <div class="prow"><em>What I did</em><p>In a team project, ran 30+ interviews across seven departments to map every recall activity. Built a fully loaded labor cost model for each fee and audited recent recall events to measure under-recovery and collection gaps.</p></div>
+              <div class="prow"><em>Result</em><p>Presented to about 100 leaders, including the company president. Recommended new fee rates, an annual review cycle and a one-page fee scorecard, and leadership committed to implementing them.</p></div>
+            </div>
+            <div class="tags"><span>Forecasting</span><span>Optimization</span><span>Cost modeling</span><span>Databricks SQL</span><span>Power BI</span><span>Executive communication</span></div>
+            <div class="takeaway"><div class="ic">→</div><div><b>Why it matters</b><p>Consulting work in practice: define the business problem, build a rigorous model, validate it with the people who do the work, and present it so leaders can decide.</p></div></div>
+          </div>
+        </article>
+
+        <article class="ch" data-city="hkg" style="--c:#6BB42D">
+          <div class="ch-head">
+            <div class="logo wide"><img src="img/sourcinggpt.png" alt="SourcingGPT.ai logo"></div>
+            <div><span class="upnext">Up next · Oct 2026</span><br><span class="kind">Global Challenge Lab · AI go-to-market</span><h3>Taking an AI startup to market from Hong Kong</h3></div>
+          </div>
+          <div class="ch-body">
+            <div class="org">Thunderbird Global Challenge Lab · Client: SourcingGPT.ai</div>
+            <div class="meta"><span>Hong Kong, China</span><span>Oct 24 – Nov 24, 2026</span></div>
+            <p style="margin:16px 0 0;color:var(--ink-2);max-width:64ch">SourcingGPT.ai is a vertical AI sourcing platform that helps retailers, e-commerce sellers and procurement teams automate global sourcing: supplier discovery, RFQs, quote comparison and landed-cost calculations. As it moves from beta to broader adoption, our team will help it find and win its best customers.</p>
+            <ul>
+              <li>Build a qualified target list of 100–150 companies across sourcing firms, buying offices, trading companies, retailers and e-commerce businesses, each with a fit score and priority.</li>
+              <li>Create 3–5 tailored outreach sequences by segment: email, LinkedIn, call scripts and a short demo pitch.</li>
+              <li>Reach 50–75 qualified prospects, aiming for 5–10 product demos, and track every response in a pipeline dashboard.</li>
+              <li>Deliver a market feedback report on response rates, objections and the most promising segments for multi-seat adoption.</li>
+            </ul>
+            <div class="tags"><span>AI adoption</span><span>Go-to-market strategy</span><span>Customer segmentation</span><span>B2B SaaS sales</span><span>AI in procurement</span><span>Asia market</span></div>
+            <div class="takeaway"><div class="ic">★</div><div><b>Why it matters</b><p>This is AI strategy consulting for a real client: find which companies gain the most from AI, test the message and recommend where to grow, in Asia’s global trade hub.</p></div></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="ai-band">
+      <div class="ai-intro">
+        <span class="pill pill-light">AI &amp; leadership</span>
+        <h2>AI changes the tools. Leadership decides if it works.</h2>
+        <p>Most AI projects fail because of people and processes, not the technology. My background sits right where those meet: I map how work really gets done, I’ve rolled out new systems to users, and I’ve led teams under pressure.</p>
+      </div>
+      <div class="ai-steps">
+        <div class="ai-step">
+          <div class="n">1</div>
+          <div><h3>Find where AI creates value</h3><p>Map the process, find the repetitive and slow steps, and size the opportunity before choosing a tool.</p><small>Driver bid optimization · Shamrock · Industrial engineering · SourcingGPT.ai</small></div>
+        </div>
+        <div class="ai-step">
+          <div class="n">2</div>
+          <div><h3>Lead the adoption</h3><p>Bring teams and clients along with training, clear communication and support, so new tools are actually used.</p><small>ERP rollouts and onboarding · Odoo</small></div>
+        </div>
+        <div class="ai-step">
+          <div class="n">3</div>
+          <div><h3>Manage the people and the change</h3><p>Lead cross-functional and cross-cultural teams through new ways of working, under real deadlines.</p><small>Sub-team leadership · Tokyo Electron / TSMC · Logistics Lead · C.H. Robinson</small></div>
+        </div>
+        <div class="ai-step">
+          <div class="n">4</div>
+          <div><h3>Measure the impact</h3><p>Set KPIs, track results and use root cause analysis to keep improving after launch.</p><small>Labor planning model · Shamrock · KPI tracking · C.H. Robinson</small></div>
+        </div>
+      </div>
+      <div class="ai-foot">
+        <span>AI in my path:</span>
+        <span class="c">ERP &amp; automation · Odoo</span>
+        <span class="c">Predictive analytics · Shamrock</span>
+        <span class="c">AI strategy &amp; transformation · Thunderbird</span>
+        <span class="c">AI sourcing platform go-to-market · SourcingGPT.ai, Hong Kong</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="capabilities">
+    <div class="shead">
+      <span class="pill">Skills</span>
+      <h2>What I bring to a strategy team</h2>
+      <p>Every skill here comes from real work in the chapters above.</p>
+    </div>
+    <div class="caps">
+      <div class="cap">
+        <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+        <h3>Strategy &amp; operations</h3>
+        <p>Turning complex operations into clear decisions.</p>
+        <ul>
+          <li>Process optimization <small>ITESM · CHR · TEL</small></li>
+          <li>Complex problem solving <small>TEL</small></li>
+          <li>Project management <small>CHR · TEL</small></li>
+          <li>Supply chain strategy <small>CHR · Shamrock</small></li>
+          <li>Cost modeling &amp; pricing <small>Shamrock</small></li>
+        </ul>
+      </div>
+      <div class="cap">
+        <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <h3>Data &amp; analysis</h3>
+        <p>Using numbers to find the answer and prove it.</p>
+        <ul>
+          <li>Excel for Consulting <small>Mgmt. Consulted</small></li>
+          <li>SQL · Databricks &amp; PostgreSQL <small>Shamrock</small></li>
+          <li>Power BI &amp; Tableau <small>Shamrock</small></li>
+          <li>Forecasting &amp; optimization <small>Shamrock</small></li>
+          <li>KPI design &amp; tracking <small>CHR</small></li>
+        </ul>
+      </div>
+      <div class="cap">
+        <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.5c2.4.2 4 1.8 4.6 4.5"/></svg></div>
+        <h3>Leadership &amp; management</h3>
+        <p>Getting teams and clients to act on the plan.</p>
+        <ul>
+          <li>Team leadership <small>TEL · CHR</small></li>
+          <li>Change management &amp; adoption <small>Odoo</small></li>
+          <li>Stakeholder management <small>Odoo · CHR · Shamrock</small></li>
+          <li>Executive presentations <small>Shamrock</small></li>
+          <li>Cross-cultural teamwork <small>MX · US · DE · ES</small></li>
+        </ul>
+      </div>
+      <div class="cap">
+        <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+        <h3>AI &amp; digital transformation</h3>
+        <p>Turning new technology into business results.</p>
+        <ul>
+          <li>AI strategy &amp; adoption <small>Thunderbird</small></li>
+          <li>AI in procurement &amp; sourcing <small>SourcingGPT.ai</small></li>
+          <li>ERP &amp; process automation <small>Odoo</small></li>
+          <li>Generative AI tools <small>Research &amp; analysis</small></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries">
+    <div class="shead">
+      <span class="pill">Industry range</span>
+      <h2>Four industries, seen from the inside</h2>
+      <p>Strategy work means understanding a client’s business quickly. I’ve already worked inside these.</p>
+    </div>
+    <div class="inds">
+      <div class="ind" style="--c:#1A8FD0"><div class="lg"><img src="img/tel.png" alt="Tokyo Electron"></div><h4>Semiconductors</h4><p>Fab equipment, TSMC projects, reliability and uptime.</p></div>
+      <div class="ind" style="--c:#0098D8"><div class="lg"><img src="img/chrobinson.png" alt="C.H. Robinson"></div><h4>Logistics</h4><p>Freight operations, routing and service-level KPIs.</p></div>
+      <div class="ind" style="--c:#875A7B"><div class="lg"><img src="img/odoo.png" alt="Odoo"></div><h4>Enterprise software</h4><p>ERP solutions, key accounts and adoption.</p></div>
+      <div class="ind" style="--c:#2E9E48"><div class="lg"><img src="img/shamrock.png" alt="Shamrock Foods"></div><h4>Food distribution</h4><p>Operations analytics: labor planning, driver scheduling and recall cost recovery.</p></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="shead">
+      <span class="pill">Education</span>
+      <h2>Learning on two continents</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu"><div class="lg"><img src="img/thunderbird.png" alt="Thunderbird logo"></div><div class="d">Aug 2025 – Present</div><b>Thunderbird School of Global Management</b><span>Master of Global Management · Phoenix, AZ</span></div>
+      <div class="edu"><div class="lg"><img src="img/tec.png" alt="Tecnológico de Monterrey logo"></div><div class="d">Aug 2016 – Aug 2021</div><b>Tecnológico de Monterrey</b><span>B.S. Industrial Engineering, Minor in Systems</span></div>
+      <div class="edu"><div class="lg full"><img src="img/cbs.png" alt="CBS International Business School logo"></div><div class="d">Jan 2020 – Aug 2020</div><b>Cologne Business School</b><span>International Business exchange · Germany</span></div>
+      <div class="edu"><div class="lg"><img src="img/comillas.png" alt="Comillas logo"></div><div class="d">Aug 2018</div><b>Pontifical University of Comillas</b><span>Summer Program in Business Strategy · Spain</span></div>
+    </div>
+    <div class="extra">
+      <div class="box">
+        <h3>Languages</h3>
+        <div class="lang"><b>Spanish</b><div class="meter"><span style="width:100%"></span></div><small>Native</small></div>
+        <div class="lang"><b>English</b><div class="meter"><span style="width:95%"></span></div><small>Fluent</small></div>
+        <div class="lang"><b>German</b><div class="meter"><span style="width:30%"></span></div><small>Basic</small></div>
+      </div>
+      <div class="box">
+        <h3>Certifications</h3>
+        <div class="cert"><div><b>Excel for Consulting</b><span>Management Consulted</span></div><em>In progress</em></div>
+        <div class="cert"><div><b>PostgreSQL</b><span>Udemy</span></div><em>In progress</em></div>
+        <div class="cert"><div><b>Advanced Excel &amp; Data Visualization</b><span>Udemy</span></div><em>Jul 2020</em></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div>
+      <h2>Let’s talk <span>strategy.</span></h2>
+      <p>I’m looking for roles in global strategy, business strategy and consulting. I’d love to hear what your team is working on.</p>
+      <div class="me"><img src="img/rene.jpg" alt=""><div><b>Rene Tapia Rivera</b><span>Phoenix, AZ</span></div></div>
+    </div>
+    <div class="cards">
+      <div class="crow"><div><div class="k">Email</div><div class="v" id="email">rtapiari@asu.edu</div></div><button class="copy" data-copy="email" type="button">Copy</button></div>
+      <div class="crow"><div><div class="k">Phone</div><div class="v" id="phone">415-336-3601</div></div><button class="copy" data-copy="phone" type="button">Copy</button></div>
+      <div class="crow"><div><div class="k">LinkedIn</div><a class="v" href="https://www.linkedin.com/in/rene-tapia" target="_blank" rel="noopener">linkedin.com/in/rene-tapia</a></div><a class="go" href="https://www.linkedin.com/in/rene-tapia" target="_blank" rel="noopener">Open ↗</a></div>
+    </div>
+  </section>
+
+  <footer><span>© 2026 Rene Tapia Rivera</span><span>Made in Phoenix, AZ</span></footer>
+</main>
+
+<script>
+(function(){
+  // duplicate marquee for seamless loop
+  const tr=document.getElementById('track'); tr.innerHTML+=tr.innerHTML;
+  [...tr.children].slice(tr.children.length/2).forEach(n=>n.setAttribute('aria-hidden','true'));
+
+  // Mercator, centred on 2.5°W, showing roughly 135°W–130°E and 15°S–68°N
+  const S=600/(265*Math.PI/180), TY=S*Math.log(Math.tan(Math.PI/4+68*Math.PI/360));
+  const P=(lon,lat)=>{lat=Math.max(-80,Math.min(84,lat));return [300+S*(lon+2.5)*Math.PI/180, TY-S*Math.log(Math.tan(Math.PI/4+lat*Math.PI/360))]};
+  const C={
+    mty:{name:"Monterrey",lat:25.67,lon:-100.31,dx:12,dy:16,anchor:"start"},
+    mad:{name:"Madrid",lat:40.42,lon:-3.70,dx:-12,dy:18,anchor:"end"},
+    cgn:{name:"Cologne",lat:50.94,lon:6.96,dx:-12,dy:-8,anchor:"end"},
+    sfo:{name:"San Francisco",lat:37.77,lon:-122.42,dx:2,dy:-14,anchor:"start"},
+    phx:{name:"Phoenix",lat:33.45,lon:-112.07,dx:12,dy:5,anchor:"start"},
+    hkg:{name:"Hong Kong",lat:22.32,lon:114.17,dx:-12,dy:18,anchor:"end"}
+  };
+  const NS="http://www.w3.org/2000/svg";
+  const mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+  const g=document.getElementById('grat');
+  for(let lon=-120;lon<=120;lon+=30){const [x]=P(lon,0);mk('line',{x1:x,y1:0,x2:x,y2:250,class:'gl'},g)}
+  for(const lat of [0,20,40,60]){const [,y]=P(0,lat);mk('line',{x1:0,y1:y,x2:600,y2:y,class:'gl'},g);const t=mk('text',{x:594,y:y-4,class:'gtxt','text-anchor':'end'},g);t.textContent=lat?lat+'°N':'0°'}
+
+  // Real country outlines: world geometry from the ECharts 4 map pack (Apache-2.0), loaded as a script
+  const MINE=new Set(['Mexico','United States','Germany','Spain','China']);
+  function decodeRing(str,off,scale){const out=[];let px=off[0],py=off[1];for(let i=0;i<str.length;i+=2){let x=str.charCodeAt(i)-64,y=str.charCodeAt(i+1)-64;x=(x>>1)^(-(x&1));y=(y>>1)^(-(y&1));x+=px;y+=py;px=x;py=y;out.push([x/scale,y/scale])}return out}
+  function ringPath(ring){let d='',prev=null;for(const [lon,lat] of ring){const [x,y]=P(lon,lat);d+=(prev===null||Math.abs(lon-prev)>180?'M':'L')+x.toFixed(1)+','+y.toFixed(1);prev=lon}return d+'Z'}
+  function drawLand(geo){
+    const land=document.getElementById('land'), enc=geo.UTF8Encoding, sc=geo.UTF8Scale||1024;
+    geo.features.forEach(f=>{
+      const name=f.properties&&f.properties.name; if(name==='Antarctica')return;
+      const gm=f.geometry; if(!gm)return;
+      const polys=gm.type==='Polygon'?[gm.coordinates]:gm.coordinates, offs=gm.type==='Polygon'?[gm.encodeOffsets]:gm.encodeOffsets;
+      let d='';
+      polys.forEach((poly,i)=>poly.forEach((ring,j)=>{const pts=enc&&typeof ring==='string'?decodeRing(ring,offs[i][j],sc):ring;d+=ringPath(pts)}));
+      if(d)mk('path',{d,class:'land'+(MINE.has(name)?' mine':'')},land);
+    });
+  }
+  window.echarts={registerMap:(n,geo)=>{try{drawLand(geo)}catch(e){console.warn('map',e)}}};
+  (function load(urls){if(!urls.length)return;const sc=document.createElement('script');sc.src=urls[0];sc.async=true;sc.onerror=()=>load(urls.slice(1));document.head.appendChild(sc)})([
+    'https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js',
+    'https://unpkg.com/echarts@4.9.0/map/js/world.js'
+  ]);
+
+  const chapters=[...document.querySelectorAll('.ch')];
+  const seq=chapters.map(c=>c.dataset.city);
+  document.getElementById('tot').textContent=chapters.length;
+  const route=document.getElementById('route'), ghost=document.getElementById('ghost');
+  const segs=[];
+  for(let i=1;i<seq.length;i++){
+    if(seq[i-1]===seq[i]){segs.push(null);continue}
+    const a=C[seq[i-1]], b=C[seq[i]];
+    const [x1,y1]=P(a.lon,a.lat),[x2,y2]=P(b.lon,b.lat);
+    const d=Math.hypot(x2-x1,y2-y1);
+    const dstr=`M${x1},${y1} Q${(x1+x2)/2},${(y1+y2)/2-d*0.28} ${x2},${y2}`;
+    mk('path',{d:dstr,class:'seg-ghost'},ghost);
+    const p=mk('path',{d:dstr,class:'seg'},route);
+    const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;p._L=L;
+    segs.push(p);
+  }
+  const cg=document.getElementById('cities'), cityEls={};
+  let cur=-1;
+  Object.entries(C).forEach(([k,c])=>{
+    const [x,y]=P(c.lon,c.lat);
+    const grp=mk('g',{class:'city',tabindex:0,role:'button','aria-label':c.name},cg);
+    mk('circle',{cx:x,cy:y,r:16,class:'halo'},grp);
+    mk('circle',{cx:x,cy:y,r:5,class:'dot'},grp);
+    const t=mk('text',{x:x+c.dx,y:y+c.dy,'text-anchor':c.anchor},grp);t.textContent=c.name;
+    const go=()=>{let i=seq.indexOf(k,cur+1);if(i<0)i=seq.indexOf(k);jump(i)};
+    grp.addEventListener('click',go);
+    grp.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
+    cityEls[k]=grp;
+  });
+
+  const where=document.getElementById('where'), coord=document.getElementById('coord'), num=document.getElementById('num'), prog=document.getElementById('prog');
+  function setActive(i){
+    if(i===cur)return;cur=i;
+    chapters.forEach((c,j)=>c.classList.toggle('on',j===i));
+    segs.forEach((s,j)=>{if(s)s.style.strokeDashoffset=(j<i)?0:s._L});
+    const visited=new Set(seq.slice(0,i+1));
+    Object.entries(cityEls).forEach(([k,el])=>{el.classList.toggle('on',k===seq[i]);el.classList.toggle('done',visited.has(k)&&k!==seq[i])});
+    const c=C[seq[i]];
+    where.textContent=c.name;
+    coord.innerHTML=Math.abs(c.lat).toFixed(2)+'° N<br>'+Math.abs(c.lon).toFixed(2)+'° '+(c.lon<0?'W':'E');
+    num.textContent=i+1;
+    prog.style.width=((i+1)/chapters.length*100)+'%';
+  }
+  function jump(i){
+    i=Math.max(0,Math.min(chapters.length-1,i));
+    setActive(i);
+    const y=chapters[i].getBoundingClientRect().top+window.scrollY-96;
+    window.scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+  }
+  setActive(0);
+  document.getElementById('prev').onclick=()=>jump(cur-1);
+  document.getElementById('next').onclick=()=>jump(cur+1);
+
+  let ticking=false;
+  window.addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{ticking=false;const line=innerHeight*0.45;let best=0;chapters.forEach((c,i)=>{if(c.getBoundingClientRect().top<line)best=i});setActive(best)})},{passive:true});
+
+  document.addEventListener('keydown',e=>{
+    if(e.target.closest&&e.target.closest('input,textarea'))return;
+    if(e.key==='ArrowRight'){e.preventDefault();jump(cur+1)}
+    if(e.key==='ArrowLeft'){e.preventDefault();jump(cur-1)}
+  });
+
+  document.querySelectorAll('.ptabs').forEach(tl=>{const tabs=[...tl.querySelectorAll('[role=tab]')];
+    const sel=t=>tabs.forEach(b=>{const on=b===t;b.setAttribute('aria-selected',on);document.getElementById(b.getAttribute('aria-controls')).hidden=!on});
+    tabs.forEach((b,i)=>{b.addEventListener('click',()=>sel(b));b.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();e.stopPropagation();const n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];sel(n);n.focus()}})})});
+  document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+    const el=document.getElementById(b.dataset.copy), txt=el.textContent.trim();
+    const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'};
+    const done=()=>{b.textContent='Copied ✓';setTimeout(()=>b.textContent='Copy',1600)};
+    try{navigator.clipboard.writeText(txt).then(done,sel)}catch(e){sel()}
+  }));
+})();
+</script>
+
+</body>
+</html>
