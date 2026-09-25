@@ -1,0 +1,13 @@
+# Secrets — never commit your real key
+.env
+.env.local
+.env*.local
+
+# Vercel local dev
+.vercel
+
+# Dependencies (none currently, but keep this ready)
+node_modules
+
+# macOS
+.DS_Store

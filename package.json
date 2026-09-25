@@ -1,0 +1,9 @@
+{
+  "name": "rene-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Rene Tapia Rivera's portfolio site, including the Job Match assistant API.",
+  "engines": {
+    "node": ">=18"
+  }
+}

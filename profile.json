@@ -1,0 +1,228 @@
+{
+  "name": "Rene Tapia Rivera",
+  "headline": "Engineer by training, strategist by trajectory.",
+  "location": "Phoenix, AZ, USA",
+  "seeking": [
+    "Global strategy",
+    "Business strategy",
+    "Consulting",
+    "AI transformation"
+  ],
+  "summary": "I've worked inside semiconductor fabs, freight operations, enterprise software sales and food distribution analytics in Mexico and the U.S., and studied in Mexico, Germany and Spain. That range helps me see how a strategy holds up on the shop floor, in the supply chain and in front of the client. Now I'm focused on how AI is changing the way global companies operate, and how to lead people through that change.",
+  "contact": {
+    "email": "rtapiari@asu.edu",
+    "phone": "415-336-3601",
+    "linkedin": "https://www.linkedin.com/in/rene-tapia",
+    "portfolio_url": "https://werotapia.github.io/rene-portfolio/"
+  },
+
+  "work_authorization": "TODO: not stated anywhere on the site. Add your current work authorization / visa status for US-based roles (e.g., U.S. citizen, permanent resident, OPT/STEM-OPT, requires employer sponsorship, etc.). Recruiters for U.S. roles will ask this, so the assistant can't answer it honestly without it.",
+  "availability": "TODO: not stated on the site. Add your earliest start date, or how it depends on your Thunderbird graduation / the Hong Kong Global Challenge Lab (Oct–Nov 2026).",
+  "relocation": "TODO: not stated on the site. Add which regions/countries you're open to relocating to (the site implies openness to global roles and international work, but doesn't say so explicitly).",
+
+  "countries": {
+    "studied_in": ["Mexico", "Germany", "Spain"],
+    "worked_in": ["Mexico", "United States"],
+    "note": "4 countries lived, worked or studied in: Mexico, United States, Germany, Spain."
+  },
+
+  "languages": [
+    { "language": "Spanish", "level": "Native" },
+    { "language": "English", "level": "Fluent" },
+    { "language": "German", "level": "Basic" }
+  ],
+
+  "education": [
+    {
+      "school": "Thunderbird School of Global Management",
+      "credential": "Master of Global Management",
+      "focus": "Global strategy and business strategy; AI strategy and digital transformation",
+      "location": "Phoenix, AZ",
+      "dates": "Aug 2025 – Present",
+      "gpa": "TODO: not listed on the site",
+      "expected_graduation": "TODO: not listed on the site",
+      "details": [
+        "Studying AI strategy and digital transformation: where AI creates value, how global organizations adopt it, and how to measure the impact.",
+        "Developing management and leadership skills for cross-cultural teams and organizational change.",
+        "Building consulting skills in Excel modeling (Management Consulted), PostgreSQL and Tableau."
+      ]
+    },
+    {
+      "school": "Tecnológico de Monterrey (ITESM)",
+      "credential": "B.S. Industrial Engineering, Minor in Systems",
+      "location": "Monterrey, Mexico",
+      "dates": "Aug 2016 – Aug 2021",
+      "gpa": "TODO: not listed on the site",
+      "details": [
+        "Trained in process design, operations and data-driven decision making."
+      ]
+    },
+    {
+      "school": "Cologne Business School (CBS International Business School)",
+      "credential": "International Business exchange semester",
+      "location": "Cologne, Germany",
+      "dates": "Jan 2020 – Aug 2020",
+      "details": [
+        "Lived and studied in Germany through the start of COVID-19, adapting to remote, cross-border teamwork."
+      ]
+    },
+    {
+      "school": "Pontifical University of Comillas",
+      "credential": "International Summer Program in Business Strategy",
+      "location": "Madrid, Spain",
+      "dates": "Aug 2018",
+      "details": [
+        "Studied competitive strategy with an international group of students."
+      ]
+    }
+  ],
+
+  "experience": [
+    {
+      "organization": "TMC, a division of C.H. Robinson",
+      "roles": ["Logistics Representative", "Logistics Lead (promoted May 2022)"],
+      "location": "Monterrey, Mexico",
+      "dates": "May 2021 – Apr 2023",
+      "status": "completed",
+      "bullets": [
+        "Led supply chain operations for high-volume clients, owning delivery performance, on-time shipments and efficiency.",
+        "Implemented initiatives to reduce delays, improve routing efficiency and raise team productivity.",
+        "Monitored KPIs in advanced supply chain software to spot trends and lift service levels.",
+        "Coordinated vendors, clients and internal teams in real time to keep shipments moving.",
+        "Promoted from representative to lead in 12 months."
+      ],
+      "tags": ["KPI management", "Routing optimization", "Supply chain technology", "Vendor relations", "Team leadership"]
+    },
+    {
+      "organization": "Odoo Inc.",
+      "roles": ["Product Sales Engineer"],
+      "location": "San Francisco, CA",
+      "dates": "Jun 2023 – Aug 2024",
+      "status": "completed",
+      "bullets": [
+        "Designed tailored ERP solutions that matched software capabilities to each client's business needs.",
+        "Managed key accounts and consistently exceeded sales goals while building long-term relationships.",
+        "Bridged technical teams and end users to speed up onboarding, training and adoption."
+      ],
+      "tags": ["Solution design", "Key accounts", "ERP & automation", "Digital transformation", "Change management"]
+    },
+    {
+      "organization": "Tokyo Electron",
+      "roles": ["Field Engineer"],
+      "location": "Phoenix, AZ",
+      "dates": "Aug 2024 – Jul 2025",
+      "status": "completed",
+      "bullets": [
+        "Installed, hooked up and maintained Clean Track equipment for semiconductor manufacturing.",
+        "Managed and guided sub-teams on TSMC projects, delivering on time under high pressure.",
+        "Ran in-depth root cause analysis to optimize tool performance and support continuous improvement."
+      ],
+      "tags": ["Root cause analysis", "TSMC projects", "Team leadership", "Automated manufacturing", "Continuous improvement"]
+    },
+    {
+      "organization": "Shamrock Foods Company",
+      "roles": ["Operations Analytics, Business Analyst"],
+      "location": "Phoenix, AZ",
+      "dates": "May 31 – Jul 31, 2026",
+      "status": "completed",
+      "context": "One of the largest privately held foodservice distributors in the U.S. On the Operations Analytics team, led two individual projects and one team project, working in Databricks (SQL), Power BI and Excel.",
+      "wins": [
+        "Labor planning model went into production for supervisors as a live tool.",
+        "30+ stakeholder interviews across 7 departments.",
+        "Presented to about 100 leaders, including the company president."
+      ],
+      "projects": [
+        {
+          "name": "Labor planning model",
+          "problem": "Warehouse staffing in Arizona and Colorado was set by supervisor intuition, causing overtime on light days and dock congestion on peak days.",
+          "what_i_did": "Analyzed two years of inbound data in SQL to forecast volume by day, shift and zone. Built productivity benchmarks per position, turned them into a labor formula, and designed a Power BI planning dashboard for supervisors. Validated the model against history and with supervisor feedback.",
+          "result": "Published in Shamrock's Power BI environment as a production tool. Supervisors started using it right away, and leadership said it exceeded expectations."
+        },
+        {
+          "name": "Driver bid optimization",
+          "problem": "Weekly driver schedules (\"bids\") were built by hand. Fewer, better bids mean lower labor cost and better driver retention in a tight labor market.",
+          "what_i_did": "Framed bid building as a constrained optimization problem with DOT rest rules, weekly hour limits, license classes and days off. Cross-checked planned against GPS-tracked route times to set safe buffers, then built a greedy heuristic with a local search improvement step.",
+          "result": "Delivered a documented, repeatable framework and data pipeline for the transportation planning team. The team said the analysis exceeded expectations."
+        },
+        {
+          "name": "Recall fee strategy",
+          "problem": "Were Shamrock's fees for product recalls and withdrawals covering the true cost, and being billed and collected consistently?",
+          "what_i_did": "In a team project, ran 30+ interviews across seven departments to map every recall activity. Built a fully loaded labor cost model for each fee and audited recent recall events to measure under-recovery and collection gaps.",
+          "result": "Presented to about 100 leaders, including the company president. Recommended new fee rates, an annual review cycle and a one-page fee scorecard, and leadership committed to implementing them."
+        }
+      ],
+      "tags": ["Forecasting", "Optimization", "Cost modeling", "Databricks SQL", "Power BI", "Executive communication"]
+    },
+    {
+      "organization": "Thunderbird Global Challenge Lab · Client: SourcingGPT.ai",
+      "roles": ["AI go-to-market team member"],
+      "location": "Hong Kong, China",
+      "dates": "Oct 24 – Nov 24, 2026",
+      "status": "upcoming",
+      "status_note": "This has not happened yet as of the site's last update — do not present it as completed experience. It can be mentioned as planned/upcoming AI go-to-market work.",
+      "context": "SourcingGPT.ai is a vertical AI sourcing platform that helps retailers, e-commerce sellers and procurement teams automate global sourcing: supplier discovery, RFQs, quote comparison and landed-cost calculations. As it moves from beta to broader adoption, the team will help it find and win its best customers.",
+      "planned_scope": [
+        "Build a qualified target list of 100–150 companies across sourcing firms, buying offices, trading companies, retailers and e-commerce businesses, each with a fit score and priority.",
+        "Create 3–5 tailored outreach sequences by segment: email, LinkedIn, call scripts and a short demo pitch.",
+        "Reach 50–75 qualified prospects, aiming for 5–10 product demos, and track every response in a pipeline dashboard.",
+        "Deliver a market feedback report on response rates, objections and the most promising segments for multi-seat adoption."
+      ],
+      "tags": ["AI adoption", "Go-to-market strategy", "Customer segmentation", "B2B SaaS sales", "AI in procurement", "Asia market"]
+    }
+  ],
+
+  "skills": {
+    "strategy_operations": [
+      "Process optimization",
+      "Complex problem solving",
+      "Project management",
+      "Supply chain strategy",
+      "Cost modeling & pricing"
+    ],
+    "data_analysis": [
+      "Excel for Consulting",
+      "SQL (Databricks & PostgreSQL)",
+      "Power BI & Tableau",
+      "Forecasting & optimization",
+      "KPI design & tracking"
+    ],
+    "leadership_management": [
+      "Team leadership",
+      "Change management & adoption",
+      "Stakeholder management",
+      "Executive presentations",
+      "Cross-cultural teamwork"
+    ],
+    "ai_digital_transformation": [
+      "AI strategy & adoption",
+      "AI in procurement & sourcing",
+      "ERP & process automation",
+      "Generative AI tools"
+    ]
+  },
+
+  "industries": [
+    { "name": "Semiconductors", "note": "Fab equipment, TSMC projects, reliability and uptime." },
+    { "name": "Logistics", "note": "Freight operations, routing and service-level KPIs." },
+    { "name": "Enterprise software", "note": "ERP solutions, key accounts and adoption." },
+    { "name": "Food distribution", "note": "Operations analytics: labor planning, driver scheduling and recall cost recovery." }
+  ],
+
+  "certifications": [
+    { "name": "Excel for Consulting", "issuer": "Management Consulted", "status": "In progress" },
+    { "name": "PostgreSQL", "issuer": "Udemy", "status": "In progress" },
+    { "name": "Advanced Excel & Data Visualization", "issuer": "Udemy", "status": "Completed", "date": "Jul 2020" }
+  ],
+
+  "key_achievements": [
+    "Built a labor planning model at Shamrock Foods that went into production for supervisors.",
+    "Presented recall fee strategy recommendations to ~100 leaders, including the company president, who committed to implementing them.",
+    "Promoted from Logistics Representative to Logistics Lead in 12 months at TMC/C.H. Robinson.",
+    "Worked across 4 industries (semiconductors, logistics, enterprise software, food distribution) and 4 countries (Mexico, U.S., Germany, Spain)."
+  ],
+
+  "profile_meta": {
+    "source": "Generated from index.html on the rene-portfolio site. Update this file directly (or update index.html and ask Claude to re-sync it) when your experience changes.",
+    "last_synced_with_site": "2026-09-24"
+  }
+}
