@@ -109,10 +109,11 @@ a{color:var(--teal)}
 .marquee p{text-align:center;margin:0 0 16px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
 .track{display:flex;gap:18px;width:max-content;animation:slide 40s linear infinite}
 .marquee:hover .track{animation-play-state:paused}
-.track .lg{width:150px;height:84px;border-radius:16px;background:var(--logo-bg);border:1px solid var(--line);display:grid;place-items:center;padding:12px;flex:0 0 auto}
-.track .lg img{max-width:100%;max-height:100%;object-fit:contain}
-.track .lg.full{padding:0;overflow:hidden}
-.track .lg.full img{width:100%;height:100%;object-fit:cover}
+.track .lg{width:150px;height:84px;border-radius:16px;background:var(--logo-bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:18px;flex:0 0 auto;overflow:hidden}
+.track .lg img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;min-width:0;min-height:0;object-fit:contain}
+.track .lg img.blend{mix-blend-mode:multiply}
+.track .lg.full{background:#461f6a;border-color:color-mix(in srgb,#461f6a 55%,var(--line))}
+@media (max-width:480px){.track .lg{width:120px;height:68px;padding:14px}}
 @keyframes slide{to{transform:translateX(-50%)}}
 .marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
 .marquee::before{left:0;background:linear-gradient(90deg,var(--panel),transparent)}
@@ -362,10 +363,10 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       <div class="lg"><img src="img/tel.png" alt="Tokyo Electron"></div>
       <div class="lg"><img src="img/thunderbird.png" alt="Thunderbird School of Global Management"></div>
       <div class="lg"><img src="img/odoo.png" alt="Odoo"></div>
-      <div class="lg"><img src="img/tec.png" alt="Tecnológico de Monterrey"></div>
-      <div class="lg"><img src="img/chrobinson.jpg" alt="C.H. Robinson"></div>
-      <div class="lg"><img src="img/comillas.jpg" alt="Universidad Pontificia Comillas"></div>
-      <div class="lg"><img src="img/shamrock.jpg" alt="Shamrock Foods Company"></div>
+      <div class="lg"><img class="blend" src="img/tec.png" alt="Tecnológico de Monterrey"></div>
+      <div class="lg"><img class="blend" src="img/chrobinson.jpg" alt="C.H. Robinson"></div>
+      <div class="lg"><img class="blend" src="img/comillas.jpg" alt="Universidad Pontificia Comillas"></div>
+      <div class="lg"><img class="blend" src="img/shamrock.jpg" alt="Shamrock Foods Company"></div>
       <div class="lg full"><img src="img/cbs.jpg" alt="CBS International Business School"></div>
       <div class="lg"><img src="img/sourcinggpt.jpg" alt="SourcingGPT.ai"></div>
     </div>
