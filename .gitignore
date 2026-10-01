@@ -11,3 +11,7 @@ node_modules
 
 # macOS
 .DS_Store
+
+# Local backups/archives — never upload these
+*.zip
+rene-portfolio.zip
