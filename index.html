@@ -317,69 +317,6 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
 .hero > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
 .hero > *:nth-child(2){animation-delay:.15s}
 
-/* ---- Job Match assistant ---- */
-.jm-panel{position:relative;overflow:hidden;border-radius:32px;padding:clamp(26px,5vw,56px);margin-bottom:clamp(72px,10vw,120px);background:linear-gradient(140deg,#102A33,#0D4F4A 55%,#3A2A2A);color:#EEF5F4}
-.jm-panel::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.2px);background-size:22px 22px;mask-image:linear-gradient(120deg,transparent 30%,#000);-webkit-mask-image:linear-gradient(120deg,transparent 30%,#000);pointer-events:none}
-.jm-panel > *{position:relative}
-.jm-head h2{font-size:clamp(30px,4vw,44px);line-height:1.05;margin-top:14px;max-width:22ch}
-.jm-head p{color:rgba(238,245,244,.8);max-width:62ch;margin:14px 0 0}
-.jm-body{margin-top:26px}
-.jm-textarea{width:100%;min-height:150px;resize:vertical;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:16px 18px;color:#F4F8F7;font:15.5px/1.55 var(--sans);}
-.jm-textarea::placeholder{color:rgba(238,245,244,.45)}
-.jm-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
-.jm-count{font-size:13px;color:rgba(238,245,244,.6);font-variant-numeric:tabular-nums}
-.jm-count.warn{color:#F7A77E}
-.jm-analyze{border:0}
-.jm-analyze:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.jm-status{display:none;align-items:center;gap:12px;margin-top:18px;font-size:14.5px;color:rgba(238,245,244,.85)}
-.jm-status.show{display:flex}
-.jm-spinner{width:20px;height:20px;border-radius:50%;border:2.5px solid rgba(255,255,255,.25);border-top-color:#F7A77E;flex:0 0 auto;animation:jm-spin .8s linear infinite}
-@keyframes jm-spin{to{transform:rotate(360deg)}}
-.jm-error{display:none;margin-top:18px;padding:14px 16px;border-radius:14px;background:rgba(238,123,69,.16);border:1px solid rgba(247,167,126,.35);color:#FBC3A6;font-size:14.5px;line-height:1.5}
-.jm-error.show{display:block}
-
-.jm-report{display:none;margin-top:30px;padding-top:28px;border-top:1px solid rgba(255,255,255,.16)}
-.jm-report.show{display:block}
-.jm-score-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
-.jm-ring-wrap{position:relative;width:104px;height:104px;flex:0 0 auto}
-.jm-ring{width:104px;height:104px;display:block}
-.jm-ring circle{fill:none;stroke-width:9}
-.jm-ring .track{stroke:rgba(255,255,255,.14)}
-.jm-ring .fill{stroke:url(#jmGrad);stroke-linecap:round;transform:rotate(-90deg);transform-origin:52px 52px;transition:stroke-dashoffset 1.1s cubic-bezier(.2,.7,.2,1)}
-.jm-ring-num{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:24px;color:#fff}
-.jm-score-text b{display:block;font-family:var(--display);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#9FE3D9}
-.jm-score-text span{display:block;margin-top:4px;font-size:15px;color:rgba(238,245,244,.8);max-width:44ch}
-.jm-summary{margin-top:20px;font-size:16px;line-height:1.6;color:#F4F8F7}
-.jm-block{margin-top:24px}
-.jm-block h4{font-family:var(--display);font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#9FE3D9;margin-bottom:12px}
-.jm-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-.jm-list li{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 16px}
-.jm-list li b{display:block;font-size:15px;color:#fff;margin-bottom:4px}
-.jm-list li span{display:block;font-size:14px;color:rgba(238,245,244,.78);line-height:1.5}
-.jm-chips{display:flex;flex-wrap:wrap;gap:8px}
-.jm-chips .jm-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 14px}
-.jm-chips .jm-chip b{font-size:13.5px;color:#fff}
-.jm-chips .jm-chip span{display:block;font-size:12.5px;color:rgba(238,245,244,.7);margin-top:2px;max-width:28ch}
-.jm-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.jm-actions .btn.solid{background:var(--sun);border-color:var(--sun)}
-.jm-actions .copy,.jm-actions .go{background:#F4F8F7;color:#15323A}
-.jm-actions .copy:hover,.jm-actions .go:hover{background:#F7A77E}
-
-.jm-fab{position:fixed;right:20px;bottom:20px;z-index:50;display:inline-flex;align-items:center;gap:10px;padding:14px 20px 14px 16px;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(120deg,var(--teal),var(--sun));color:#0E171C;font:700 14.5px var(--sans);box-shadow:0 18px 40px -18px rgba(0,0,0,.55);transition:transform .2s}
-.jm-fab:hover{transform:translateY(-2px)}
-.jm-fab svg{width:20px;height:20px;flex:0 0 auto}
-@media (max-width:600px){.jm-fab span{display:none}.jm-fab{padding:14px;border-radius:50%}}
-
-.jm-backdrop{position:fixed;inset:0;background:rgba(8,14,17,.6);backdrop-filter:blur(3px);z-index:60;opacity:0;pointer-events:none;transition:opacity .25s}
-.jm-backdrop.open{opacity:1;pointer-events:auto}
-.jm-modal-wrap{position:fixed;inset:0;z-index:61;display:flex;align-items:flex-end;justify-content:flex-end;padding:16px;pointer-events:none}
-.jm-modal{pointer-events:none;visibility:hidden;width:min(560px,100%);max-height:min(88vh,880px);overflow-y:auto;border-radius:28px;transform:translateY(16px) scale(.98);opacity:0;transition:transform .25s cubic-bezier(.2,.7,.2,1),opacity .25s,visibility .25s}
-.jm-backdrop.open ~ .jm-modal-wrap .jm-modal{pointer-events:auto;visibility:visible;transform:none;opacity:1}
-.jm-modal .jm-panel{margin-bottom:0;border-radius:28px;padding:24px clamp(20px,4vw,32px) 30px}
-.jm-modal-close{position:absolute;top:18px;right:18px;z-index:2;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:16px;cursor:pointer;line-height:1;display:grid;place-items:center}
-.jm-modal-close:hover{background:rgba(255,255,255,.18)}
-@media (max-width:600px){.jm-modal-wrap{padding:0;align-items:stretch}.jm-modal{width:100%;max-height:100%;height:100%;border-radius:0}.jm-modal .jm-panel{border-radius:0;min-height:100%}}
-
 /* ---- Fit Check quiz ---- */
 .fc-card{background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,4vw,36px);box-shadow:var(--shadow);max-width:760px;margin:0 auto}
 .fc-progress{height:6px;background:var(--bg-2);border-radius:3px;overflow:hidden}
@@ -407,7 +344,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
 .fc-ring{width:104px;height:104px;display:block}
 .fc-ring circle{fill:none;stroke-width:9}
 .fc-ring .track{stroke:var(--bg-2)}
-.fc-ring .fill{stroke:url(#jmGrad);stroke-linecap:round;transform:rotate(-90deg);transform-origin:52px 52px;transition:stroke-dashoffset 1.1s cubic-bezier(.2,.7,.2,1)}
+.fc-ring .fill{stroke:url(#ringGrad);stroke-linecap:round;transform:rotate(-90deg);transform-origin:52px 52px;transition:stroke-dashoffset 1.1s cubic-bezier(.2,.7,.2,1)}
 .fc-ring-num{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:22px;color:var(--ink)}
 .fc-report-head h3{font-size:clamp(20px,2.6vw,26px);line-height:1.2}
 .fc-report-head p{color:var(--ink-2);margin-top:6px;max-width:44ch;font-size:15px}
@@ -460,7 +397,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
 .sk-ring{width:52px;height:52px;display:block}
 .sk-ring circle{fill:none;stroke-width:5}
 .sk-ring .track{stroke:var(--bg-2)}
-.sk-ring .fill{stroke:url(#jmGrad);stroke-linecap:round;transform:rotate(-90deg);transform-origin:26px 26px}
+.sk-ring .fill{stroke:url(#ringGrad);stroke-linecap:round;transform:rotate(-90deg);transform-origin:26px 26px}
 .sk-card h3{font-size:17px;margin-top:16px}
 .sk-card .used{font-size:13px;color:var(--ink-2);margin-top:4px}
 .sk-card .used b{color:var(--ink);font-variant-numeric:tabular-nums}
@@ -479,23 +416,11 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
 .sk-dot{width:11px;height:11px;border-radius:50%;background:var(--line);display:inline-block}
 .sk-dot.on{background:var(--teal);cursor:help}
 @media (max-width:760px){.sk-grid{min-width:720px}}
-
-@media print{
-  body > *:not(.jm-print-clone){display:none!important}
-  .jm-print-clone{display:block!important;background:#fff;color:#111;padding:28px;font-family:var(--sans)}
-  .jm-print-clone h2{font-family:var(--display);font-size:22px;margin-bottom:4px}
-  .jm-print-clone .jm-pc-meta{color:#555;font-size:13px;margin-bottom:18px}
-  .jm-print-clone .jm-pc-score{font-family:var(--display);font-weight:800;font-size:32px;color:#0E7C74;margin-bottom:10px}
-  .jm-print-clone h4{font-family:var(--display);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#0E7C74;margin:18px 0 8px}
-  .jm-print-clone p{margin:0 0 4px;line-height:1.5}
-  .jm-print-clone ul{margin:0;padding-left:18px}
-  .jm-print-clone li{margin-bottom:8px;line-height:1.5}
-}
 </style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="jmGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#0E7C74"/><stop offset="1" stop-color="#EE7B45"/></linearGradient></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="ringGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#0E7C74"/><stop offset="1" stop-color="#EE7B45"/></linearGradient></defs></svg>
 
 <header class="bar">
   <div class="wrap">
@@ -507,7 +432,6 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       <a href="#capabilities">Skills</a>
       <a href="#industries">Industries</a>
       <a href="#education">Education</a>
-      <a href="#job-match">Job Match</a>
       <a class="cta" href="#contact">Let’s talk</a>
     </nav>
   </div>
@@ -1019,17 +943,6 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
     </div>
   </section>
 
-  <section id="job-match">
-    <div class="jm-panel">
-      <div class="jm-head">
-        <span class="pill pill-light">Free · takes 10 seconds</span>
-        <h2>Do I fit your role?</h2>
-        <p>Paste a job description and get an honest, evidence-based read on how my background matches it — powered by AI, grounded only in what's actually on this page.</p>
-      </div>
-      <div class="jm-body" id="jm-body-inline"></div>
-    </div>
-  </section>
-
   <section class="contact" id="contact">
     <div>
       <h2>Let’s talk <span>strategy.</span></h2>
@@ -1045,26 +958,6 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
 
   <footer><span>© 2026 Rene Tapia Rivera</span><span>Made in Phoenix, AZ</span></footer>
 </main>
-
-<button class="jm-fab" id="jm-fab-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="jm-modal">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-  <span>Do I fit your role?</span>
-</button>
-
-<div class="jm-backdrop" id="jm-backdrop"></div>
-<div class="jm-modal-wrap">
-  <div class="jm-modal" id="jm-modal" role="dialog" aria-modal="true" aria-label="Job Match assistant">
-    <div class="jm-panel">
-      <button class="jm-modal-close" id="jm-modal-close" type="button" aria-label="Close">✕</button>
-      <div class="jm-head">
-        <span class="pill pill-light">Free · takes 10 seconds</span>
-        <h2>Do I fit your role?</h2>
-        <p>Paste a job description and get an honest, evidence-based read on how my background matches it.</p>
-      </div>
-      <div class="jm-body" id="jm-body-modal"></div>
-    </div>
-  </div>
-</div>
 
 <script>
 (function(){
@@ -1233,280 +1126,6 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
     const done=()=>{b.textContent='Copied ✓';setTimeout(()=>b.textContent='Copy',1600)};
     try{navigator.clipboard.writeText(txt).then(done,sel)}catch(e){sel()}
   }));
-})();
-</script>
-
-<script>
-(function(){
-  var CHAR_LIMIT = 8000;
-  var MIN_CHARS = 30;
-  var MAX_PER_HOUR = 5;
-  var HOUR_MS = 60 * 60 * 1000;
-  var RING_R = 47;
-  var RING_C = 2 * Math.PI * RING_R;
-
-  var NETWORK_ERROR = 'No se pudo conectar con el asistente. Revisa tu conexión e intenta de nuevo, o contáctame directamente. / Could not reach the assistant. Check your connection and try again, or contact me directly.';
-  var RATE_LIMIT_MSG = 'Ya generaste 5 reportes en la última hora. Intenta de nuevo más tarde o contáctame directamente. / You’ve already generated 5 reports in the last hour. Please try again later, or contact me directly.';
-  var TOO_SHORT_MSG = 'Pega una descripción de puesto más completa para poder analizarla. / Please paste a fuller job description so it can be analyzed.';
-
-  function esc(s){
-    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
-      return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
-    });
-  }
-  function byId(id){ return document.getElementById(id); }
-
-  function jmTemplate(prefix){
-    return (
-      '<textarea class="jm-textarea" id="'+prefix+'-jd" maxlength="'+CHAR_LIMIT+'" placeholder="Paste the full job description here… (up to 8,000 characters)"></textarea>'+
-      '<div class="jm-row">'+
-        '<span class="jm-count" id="'+prefix+'-count">0 / '+CHAR_LIMIT+'</span>'+
-        '<button class="btn solid jm-analyze" id="'+prefix+'-analyze" type="button" disabled>Analyze <span class="arr">→</span></button>'+
-      '</div>'+
-      '<div class="jm-status" id="'+prefix+'-status"><span class="jm-spinner" aria-hidden="true"></span><span>Reading the job description and comparing it with Rene’s profile…</span></div>'+
-      '<div class="jm-error" id="'+prefix+'-error"></div>'+
-      '<div class="jm-report" id="'+prefix+'-report">'+
-        '<div class="jm-score-row">'+
-          '<div class="jm-ring-wrap">'+
-            '<svg class="jm-ring" viewBox="0 0 104 104"><circle class="track" cx="52" cy="52" r="'+RING_R+'"/><circle class="fill" id="'+prefix+'-ringfill" cx="52" cy="52" r="'+RING_R+'"/></svg>'+
-            '<div class="jm-ring-num" id="'+prefix+'-ringnum">0%</div>'+
-          '</div>'+
-          '<div class="jm-score-text"><b>Overall match</b><span>Based only on what’s in Rene’s profile — no invented experience.</span></div>'+
-        '</div>'+
-        '<p class="jm-summary" id="'+prefix+'-summary"></p>'+
-        '<div class="jm-block"><h4>You match</h4><ul class="jm-list" id="'+prefix+'-matched"></ul></div>'+
-        '<div class="jm-block"><h4>Transferable skills</h4><div class="jm-chips" id="'+prefix+'-transfer"></div></div>'+
-        '<div class="jm-block"><h4>Areas to grow</h4><ul class="jm-list" id="'+prefix+'-growth"></ul></div>'+
-        '<div class="jm-actions">'+
-          '<a class="btn solid jm-contact-link" href="#contact">Contact Rene <span class="arr">→</span></a>'+
-          '<button class="copy" id="'+prefix+'-copybtn" type="button">Copy report</button>'+
-          '<button class="go" id="'+prefix+'-pdfbtn" type="button">Download PDF</button>'+
-        '</div>'+
-      '</div>'
-    );
-  }
-
-  function getHits(){
-    try { return JSON.parse(localStorage.getItem('jm_hits') || '[]'); }
-    catch (e) { return []; }
-  }
-  function freshHits(){
-    var now = Date.now();
-    return getHits().filter(function(t){ return now - t < HOUR_MS; });
-  }
-  function recordHit(){
-    var hits = freshHits();
-    hits.push(Date.now());
-    try { localStorage.setItem('jm_hits', JSON.stringify(hits)); } catch (e) {}
-  }
-  function hitsRemaining(){ return Math.max(0, MAX_PER_HOUR - freshHits().length); }
-
-  var lastReport = {};
-
-  function els(prefix){
-    return {
-      jd: byId(prefix+'-jd'),
-      count: byId(prefix+'-count'),
-      analyze: byId(prefix+'-analyze'),
-      status: byId(prefix+'-status'),
-      error: byId(prefix+'-error'),
-      report: byId(prefix+'-report'),
-      ringFill: byId(prefix+'-ringfill'),
-      ringNum: byId(prefix+'-ringnum'),
-      summary: byId(prefix+'-summary'),
-      matched: byId(prefix+'-matched'),
-      transfer: byId(prefix+'-transfer'),
-      growth: byId(prefix+'-growth'),
-      copyBtn: byId(prefix+'-copybtn'),
-      pdfBtn: byId(prefix+'-pdfbtn')
-    };
-  }
-
-  function showError(e, msg){
-    e.error.textContent = msg;
-    e.error.classList.add('show');
-  }
-  function clearMessages(e){
-    e.error.classList.remove('show');
-    e.error.textContent = '';
-  }
-
-  function updateAnalyzeState(e){
-    var len = e.jd.value.length;
-    e.count.textContent = len + ' / ' + CHAR_LIMIT;
-    e.count.classList.toggle('warn', len >= CHAR_LIMIT);
-    e.analyze.disabled = len < MIN_CHARS || len > CHAR_LIMIT;
-  }
-
-  function renderReport(prefix, e, report){
-    lastReport[prefix] = report;
-    e.summary.textContent = report.summary;
-    e.matched.innerHTML = (report.matched_requirements || []).map(function(m){
-      return '<li><b>'+esc(m.requirement)+'</b><span>'+esc(m.evidence)+'</span></li>';
-    }).join('');
-    e.transfer.innerHTML = (report.transferable_skills || []).map(function(s){
-      return '<div class="jm-chip"><b>'+esc(s.skill)+'</b><span>'+esc(s.note)+'</span></div>';
-    }).join('');
-    e.growth.innerHTML = (report.growth_areas || []).map(function(g){
-      return '<li><b>'+esc(g.area)+'</b><span>'+esc(g.note)+'</span></li>';
-    }).join('') || '<li><span>No significant gaps identified for this role.</span></li>';
-
-    var pct = Math.max(0, Math.min(100, Math.round(report.match_percentage)));
-    e.ringNum.textContent = pct + '%';
-    e.ringFill.style.strokeDasharray = String(RING_C);
-    e.ringFill.style.strokeDashoffset = String(RING_C);
-    requestAnimationFrame(function(){
-      requestAnimationFrame(function(){
-        e.ringFill.style.strokeDashoffset = String(RING_C * (1 - pct / 100));
-      });
-    });
-
-    e.report.classList.add('show');
-  }
-
-  function reportAsText(report){
-    var lines = [];
-    lines.push('Rene Tapia Rivera — Job Match Report (' + Math.round(report.match_percentage) + '% match)');
-    lines.push('');
-    lines.push(report.summary);
-    lines.push('');
-    lines.push('YOU MATCH:');
-    (report.matched_requirements || []).forEach(function(m){ lines.push('- ' + m.requirement + ': ' + m.evidence); });
-    lines.push('');
-    lines.push('TRANSFERABLE SKILLS:');
-    (report.transferable_skills || []).forEach(function(s){ lines.push('- ' + s.skill + ': ' + s.note); });
-    lines.push('');
-    lines.push('AREAS TO GROW:');
-    (report.growth_areas || []).forEach(function(g){ lines.push('- ' + g.area + ': ' + g.note); });
-    lines.push('');
-    lines.push('Contact: rtapiari@asu.edu · https://www.linkedin.com/in/rene-tapia');
-    return lines.join('\n');
-  }
-
-  function copyReport(prefix, btn){
-    var report = lastReport[prefix];
-    if (!report) return;
-    var text = reportAsText(report);
-    var done = function(){ btn.textContent = 'Copied ✓'; setTimeout(function(){ btn.textContent = 'Copy report'; }, 1600); };
-    var fallback = function(){
-      var ta = document.createElement('textarea');
-      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-      document.body.appendChild(ta); ta.select();
-      try { document.execCommand('copy'); done(); } catch (e) { btn.textContent = 'Press ⌘/Ctrl+C'; setTimeout(function(){ btn.textContent = 'Copy report'; }, 1600); }
-      document.body.removeChild(ta);
-    };
-    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
-  }
-
-  function downloadPdf(prefix){
-    var report = lastReport[prefix];
-    if (!report) return;
-    var clone = document.createElement('div');
-    clone.className = 'jm-print-clone';
-    var html = '<h2>Rene Tapia Rivera — Job Match Report</h2>' +
-      '<div class="jm-pc-meta">Generated ' + new Date().toLocaleDateString() + ' · rene-portfolio job match assistant</div>' +
-      '<div class="jm-pc-score">' + Math.round(report.match_percentage) + '% match</div>' +
-      '<p>' + esc(report.summary) + '</p>' +
-      '<h4>You match</h4><ul>' + (report.matched_requirements || []).map(function(m){ return '<li><b>' + esc(m.requirement) + ':</b> ' + esc(m.evidence) + '</li>'; }).join('') + '</ul>' +
-      '<h4>Transferable skills</h4><ul>' + (report.transferable_skills || []).map(function(s){ return '<li><b>' + esc(s.skill) + ':</b> ' + esc(s.note) + '</li>'; }).join('') + '</ul>' +
-      '<h4>Areas to grow</h4><ul>' + (report.growth_areas || []).map(function(g){ return '<li><b>' + esc(g.area) + ':</b> ' + esc(g.note) + '</li>'; }).join('') + '</ul>' +
-      '<h4>Contact</h4><p>rtapiari@asu.edu · https://www.linkedin.com/in/rene-tapia</p>';
-    clone.innerHTML = html;
-    document.body.appendChild(clone);
-    var cleanup = function(){
-      if (clone.parentNode) clone.parentNode.removeChild(clone);
-      window.removeEventListener('afterprint', cleanup);
-    };
-    window.addEventListener('afterprint', cleanup);
-    window.print();
-    setTimeout(cleanup, 4000);
-  }
-
-  function runAnalysis(prefix, e){
-    clearMessages(e);
-    e.report.classList.remove('show');
-    var jobDescription = e.jd.value.trim();
-
-    if (jobDescription.length < MIN_CHARS){
-      showError(e, TOO_SHORT_MSG);
-      return;
-    }
-    if (hitsRemaining() <= 0){
-      showError(e, RATE_LIMIT_MSG);
-      return;
-    }
-
-    e.analyze.disabled = true;
-    e.status.classList.add('show');
-
-    fetch('/api/match', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ jobDescription: jobDescription })
-    }).then(function(res){ return res.json().then(function(data){ return { ok: res.ok, data: data }; }); })
-      .then(function(result){
-        e.status.classList.remove('show');
-        var data = result.data;
-        if (!data || !data.ok){
-          showError(e, (data && data.message) || NETWORK_ERROR);
-          updateAnalyzeState(e);
-          return;
-        }
-        recordHit();
-        renderReport(prefix, e, data.report);
-        updateAnalyzeState(e);
-      })
-      .catch(function(){
-        e.status.classList.remove('show');
-        showError(e, NETWORK_ERROR);
-        updateAnalyzeState(e);
-      });
-  }
-
-  function initInstance(prefix, container){
-    container.innerHTML = jmTemplate(prefix);
-    var e = els(prefix);
-    updateAnalyzeState(e);
-    e.jd.addEventListener('input', function(){ updateAnalyzeState(e); });
-    e.analyze.addEventListener('click', function(){ runAnalysis(prefix, e); });
-    e.copyBtn.addEventListener('click', function(){ copyReport(prefix, e.copyBtn); });
-    e.pdfBtn.addEventListener('click', function(){ downloadPdf(prefix); });
-    return e;
-  }
-
-  var inlineEls = initInstance('jm-inline', byId('jm-body-inline'));
-  var modalEls = initInstance('jm-modal', byId('jm-body-modal'));
-
-  // Close the modal when its "Contact Rene" link is used, so the anchor jump is visible.
-  document.querySelectorAll('#jm-modal .jm-contact-link').forEach(function(a){
-    a.addEventListener('click', function(){ closeModal(); });
-  });
-
-  var fab = byId('jm-fab-btn');
-  var backdrop = byId('jm-backdrop');
-  var modal = byId('jm-modal');
-  var modalClose = byId('jm-modal-close');
-
-  function openModal(){
-    backdrop.classList.add('open');
-    fab.setAttribute('aria-expanded', 'true');
-    setTimeout(function(){ modalEls.jd.focus(); }, 260);
-    document.addEventListener('keydown', onKeydown);
-  }
-  function closeModal(){
-    backdrop.classList.remove('open');
-    fab.setAttribute('aria-expanded', 'false');
-    document.removeEventListener('keydown', onKeydown);
-    fab.focus();
-  }
-  function onKeydown(ev){ if (ev.key === 'Escape') closeModal(); }
-
-  fab.addEventListener('click', function(){
-    if (backdrop.classList.contains('open')) closeModal(); else openModal();
-  });
-  modalClose.addEventListener('click', closeModal);
-  backdrop.addEventListener('click', closeModal);
-  modal.addEventListener('click', function(ev){ ev.stopPropagation(); });
 })();
 </script>
 
