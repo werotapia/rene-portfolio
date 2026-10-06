@@ -224,17 +224,38 @@ kbd{font-family:var(--sans);font-weight:600;border:1px solid var(--line);border-
 .ai-band > *{position:relative}
 .pill-light{background:rgba(255,255,255,.12);color:#9FE3D9}
 .ai-intro h2{font-size:clamp(32px,4.2vw,50px);line-height:1.05;margin-top:14px;max-width:18ch}
-.ai-intro p{color:rgba(238,245,244,.8);max-width:60ch;margin:16px 0 0}
-.ai-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:34px}
-.ai-step{display:flex;gap:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:20px;transition:background .25s,transform .25s}
-.ai-step:hover{background:rgba(255,255,255,.11);transform:translateY(-3px)}
-.ai-step .n{flex:0 0 auto;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-family:var(--display);font-weight:800;background:#F7A77E;color:#15232D}
-.ai-step h3{font-size:20px;color:#fff}
-.ai-step p{margin:6px 0 8px;font-size:15px;color:rgba(238,245,244,.82)}
-.ai-step small{font-size:12.5px;color:#9FE3D9;font-weight:500}
-.ai-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:26px;font-size:14px;font-weight:600}
-.ai-foot .c{font-weight:500;font-size:13px;padding:6px 12px;border-radius:999px;background:rgba(247,167,126,.16);color:#FBC3A6}
-@media (max-width:760px){.ai-steps{grid-template-columns:1fr}}
+.ai-intro .ai-lede{color:rgba(238,245,244,.8);margin:14px 0 0;font-size:16px}
+
+/* interactive 4-step flow */
+.ai-flow{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:38px}
+.ai-flow-line{position:absolute;top:36px;left:12.5%;right:12.5%;height:2px;background:rgba(255,255,255,.14);z-index:0;border-radius:2px;overflow:hidden}
+.ai-flow-line span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--sun));transition:width .5s cubic-bezier(.2,.7,.2,1)}
+.ai-tile{all:unset;box-sizing:border-box;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:14px 6px;border-radius:16px;cursor:pointer;transition:background .2s}
+.ai-tile:hover{background:rgba(255,255,255,.06)}
+.ai-tile-ic{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.2);display:grid;place-items:center;color:#9FE3D9;transition:background .25s,border-color .25s,color .25s,transform .25s}
+.ai-tile-ic svg{width:20px;height:20px}
+.ai-tile-t{font-size:13px;font-weight:600;color:rgba(238,245,244,.72);line-height:1.3}
+.ai-tile.on .ai-tile-ic{background:var(--sun);border-color:var(--sun);color:#15232D;transform:scale(1.08)}
+.ai-tile.on .ai-tile-t{color:#fff}
+@media (max-width:700px){.ai-flow{grid-template-columns:1fr 1fr;gap:12px 8px}.ai-flow-line{display:none}}
+
+.ai-detail{margin-top:26px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:22px clamp(18px,3vw,28px)}
+.ai-detail .n{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9FE3D9;margin-bottom:6px}
+.ai-detail h3{font-size:20px;color:#fff}
+.ai-detail p{margin:8px 0 0;font-size:15px;color:rgba(238,245,244,.82)}
+.ai-evidence{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.ai-evlink{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:6px 14px 6px 6px;cursor:pointer;font-size:13.5px;font-weight:600;color:#fff;transition:background .2s,transform .2s}
+.ai-evlink:hover{background:rgba(255,255,255,.16);transform:translateY(-1px)}
+.ai-evlink .lg{width:22px;height:22px;border-radius:50%;background:var(--logo-bg);display:grid;place-items:center;overflow:hidden;flex:0 0 auto}
+.ai-evlink .lg img{width:100%;height:100%;object-fit:cover}
+
+.ai-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
+.ai-foot > span{font-size:14px;font-weight:600;color:rgba(238,245,244,.9)}
+.ai-logos{display:flex;gap:10px}
+.ai-logochip{all:unset;box-sizing:border-box;position:relative;width:40px;height:40px;border-radius:50%;background:var(--logo-bg);display:grid;place-items:center;padding:6px;cursor:pointer}
+.ai-logochip img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+.ai-logochip::after{content:attr(data-label);position:absolute;bottom:calc(100% + 9px);left:50%;transform:translateX(-50%) translateY(4px);background:#15232D;color:#fff;font-size:12px;font-weight:500;padding:6px 10px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 8px 20px -8px rgba(0,0,0,.5);z-index:2}
+.ai-logochip:hover::after,.ai-logochip:focus-visible::after{opacity:1;transform:translateX(-50%) translateY(0)}
 
 .caps{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:clamp(72px,10vw,120px)}
 .cap{background:var(--panel);border:1px solid var(--line);border-radius:26px;padding:28px;transition:transform .25s,box-shadow .25s}
@@ -382,24 +403,29 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
 @media (max-width:520px){.ch-row{gap:10px;padding:12px 14px}.rtitle{font-size:14px}.rsub{font-size:12px}}
 
 /* ---- Visual skills section ---- */
-.sk-groups{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
-.sk-card{text-align:left;border:1.5px solid var(--line);background:var(--panel);border-radius:22px;padding:22px;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s}
+.sk-groups{display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;gap:16px;margin-bottom:28px}
+.sk-card{all:unset;box-sizing:border-box;display:flex;flex-direction:column;align-self:stretch;text-align:left;border:1.5px solid var(--line);background:var(--panel);border-radius:22px;padding:22px;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s}
 .sk-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .sk-card.active{border-color:var(--teal);background:var(--teal-soft)}
 .sk-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.sk-badge{width:46px;height:46px;border-radius:14px;display:grid;place-items:center}
+.sk-badge{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:0 0 auto}
 .sk-badge svg{width:23px;height:23px}
 .sk-card:nth-child(1) .sk-badge{background:var(--teal-soft);color:var(--teal)}
 .sk-card:nth-child(2) .sk-badge{background:var(--sun-soft);color:var(--sun)}
 .sk-card:nth-child(3) .sk-badge{background:color-mix(in srgb,#6B5BD2 16%,var(--panel));color:#6B5BD2}
 .sk-card:nth-child(4) .sk-badge{background:color-mix(in srgb,#2E9E48 16%,var(--panel));color:#2E9E48}
+.sk-card:nth-child(1) .sk-ring .fill{stroke:var(--teal)}
+.sk-card:nth-child(2) .sk-ring .fill{stroke:var(--sun)}
+.sk-card:nth-child(3) .sk-ring .fill{stroke:#6B5BD2}
+.sk-card:nth-child(4) .sk-ring .fill{stroke:#2E9E48}
 .sk-ring-wrap{position:relative;width:52px;height:52px;flex:0 0 auto}
-.sk-ring{width:52px;height:52px;display:block}
+.sk-ring{width:52px;height:52px;display:block;overflow:visible}
 .sk-ring circle{fill:none;stroke-width:5}
-.sk-ring .track{stroke:var(--bg-2)}
-.sk-ring .fill{stroke:url(#ringGrad);stroke-linecap:round;transform:rotate(-90deg);transform-origin:26px 26px}
+.sk-ring .track{stroke:var(--line)}
+.sk-ring .fill{stroke-linecap:round;transform:rotate(-90deg);transform-origin:28px 28px}
+.sk-ring-num{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums}
 .sk-card h3{font-size:17px;margin-top:16px}
-.sk-card .used{font-size:13px;color:var(--ink-2);margin-top:4px}
+.sk-card .used{font-size:13px;color:var(--ink-2);margin-top:4px;flex:1 1 auto}
 .sk-card .used b{color:var(--ink);font-variant-numeric:tabular-nums}
 @media (max-width:900px){.sk-groups{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.sk-groups{grid-template-columns:1fr}}
@@ -477,8 +503,8 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
   <section class="stats" aria-label="At a glance">
     <div class="stat"><b>4</b><span>industries, from semiconductors to food distribution</span></div>
     <div class="stat"><b>4</b><span>countries: Mexico, U.S., Germany, Spain</span></div>
-    <div class="stat"><b>~100</b><span>leaders, including the president, heard my team’s recommendations at Shamrock</span></div>
-    <div class="stat"><b>12</b><span>months from representative to lead at C.H. Robinson</span></div>
+    <div class="stat"><b>30+</b><span>stakeholder interviews across 7 departments to rebuild Shamrock’s recall fee strategy</span></div>
+    <div class="stat"><b>3</b><span>AI &amp; digital transformation projects: ERP rollouts at Odoo, a forecasting tool now in production at Shamrock, and AI go-to-market for SourcingGPT.ai</span></div>
   </section>
 
   <section id="fit-check">
@@ -829,32 +855,39 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       <div class="ai-intro">
         <span class="pill pill-light">AI &amp; leadership</span>
         <h2>AI changes the tools. Leadership decides if it works.</h2>
-        <p>Most AI projects fail because of people and processes, not the technology. My background sits right where those meet: I map how work really gets done, I’ve rolled out new systems to users, and I’ve led teams under pressure.</p>
+        <p class="ai-lede">Four steps, from finding the opportunity to proving the result — click one to see the evidence.</p>
       </div>
-      <div class="ai-steps">
-        <div class="ai-step">
-          <div class="n">1</div>
-          <div><h3>Find where AI creates value</h3><p>Map the process, find the repetitive and slow steps, and size the opportunity before choosing a tool.</p><small>Driver bid optimization · Shamrock · Industrial engineering · SourcingGPT.ai</small></div>
-        </div>
-        <div class="ai-step">
-          <div class="n">2</div>
-          <div><h3>Lead the adoption</h3><p>Bring teams and clients along with training, clear communication and support, so new tools are actually used.</p><small>ERP rollouts and onboarding · Odoo</small></div>
-        </div>
-        <div class="ai-step">
-          <div class="n">3</div>
-          <div><h3>Manage the people and the change</h3><p>Lead cross-functional and cross-cultural teams through new ways of working, under real deadlines.</p><small>Sub-team leadership · Tokyo Electron / TSMC · Logistics Lead · C.H. Robinson</small></div>
-        </div>
-        <div class="ai-step">
-          <div class="n">4</div>
-          <div><h3>Measure the impact</h3><p>Set KPIs, track results and use root cause analysis to keep improving after launch.</p><small>Labor planning model · Shamrock · KPI tracking · C.H. Robinson</small></div>
-        </div>
+
+      <div class="ai-flow" id="ai-flow" role="tablist" aria-label="How I approach AI projects">
+        <div class="ai-flow-line" aria-hidden="true"><span id="ai-flow-fill"></span></div>
+        <button type="button" class="ai-tile" role="tab" data-step="0">
+          <span class="ai-tile-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+          <span class="ai-tile-t">Find where AI creates value</span>
+        </button>
+        <button type="button" class="ai-tile" role="tab" data-step="1">
+          <span class="ai-tile-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.5c2.4.2 4 1.8 4.6 4.5"/></svg></span>
+          <span class="ai-tile-t">Lead the adoption</span>
+        </button>
+        <button type="button" class="ai-tile" role="tab" data-step="2">
+          <span class="ai-tile-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0115-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 01-15 6.7L3 16"/></svg></span>
+          <span class="ai-tile-t">Manage the people and the change</span>
+        </button>
+        <button type="button" class="ai-tile" role="tab" data-step="3">
+          <span class="ai-tile-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+          <span class="ai-tile-t">Measure the impact</span>
+        </button>
       </div>
+
+      <div class="ai-detail" id="ai-detail"></div>
+
       <div class="ai-foot">
         <span>AI in my path:</span>
-        <span class="c">ERP &amp; automation · Odoo</span>
-        <span class="c">Predictive analytics · Shamrock</span>
-        <span class="c">AI strategy &amp; transformation · Thunderbird</span>
-        <span class="c">AI sourcing platform go-to-market · SourcingGPT.ai, Hong Kong</span>
+        <div class="ai-logos">
+          <button type="button" class="ai-logochip" data-label="ERP &amp; automation · Odoo"><img src="img/odoo.png" alt="Odoo"></button>
+          <button type="button" class="ai-logochip" data-label="Predictive analytics · Shamrock"><img src="img/shamrock.jpg" alt="Shamrock Foods"></button>
+          <button type="button" class="ai-logochip" data-label="AI strategy &amp; transformation · Thunderbird"><img src="img/thunderbird.png" alt="Thunderbird"></button>
+          <button type="button" class="ai-logochip" data-label="AI sourcing platform go-to-market · SourcingGPT.ai, Hong Kong"><img src="img/sourcinggpt.jpg" alt="SourcingGPT.ai"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -869,7 +902,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       <button type="button" class="sk-card" data-group="strategy">
         <div class="sk-card-top">
           <div class="sk-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
-          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring/></svg></div>
+          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring/></svg><div class="sk-ring-num" data-ring-num>0/9</div></div>
         </div>
         <h3>Strategy &amp; operations</h3>
         <p class="used">Used in <b data-count>0</b> of 9 experiences</p>
@@ -877,7 +910,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       <button type="button" class="sk-card" data-group="data">
         <div class="sk-card-top">
           <div class="sk-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
-          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring/></svg></div>
+          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring/></svg><div class="sk-ring-num" data-ring-num>0/9</div></div>
         </div>
         <h3>Data &amp; analysis</h3>
         <p class="used">Used in <b data-count>0</b> of 9 experiences</p>
@@ -885,7 +918,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       <button type="button" class="sk-card" data-group="leadership">
         <div class="sk-card-top">
           <div class="sk-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.5c2.4.2 4 1.8 4.6 4.5"/></svg></div>
-          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring/></svg></div>
+          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring/></svg><div class="sk-ring-num" data-ring-num>0/9</div></div>
         </div>
         <h3>Leadership &amp; management</h3>
         <p class="used">Used in <b data-count>0</b> of 9 experiences</p>
@@ -893,7 +926,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       <button type="button" class="sk-card" data-group="ai">
         <div class="sk-card-top">
           <div class="sk-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
-          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring/></svg></div>
+          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring/></svg><div class="sk-ring-num" data-ring-num>0/9</div></div>
         </div>
         <h3>AI &amp; digital transformation</h3>
         <p class="used">Used in <b data-count>0</b> of 9 experiences</p>
@@ -1133,8 +1166,9 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
 (function(){
   // Every skill → experience link below is transcribed from the skill lists and
   // chapter tags already on this page (plus the Thunderbird bullet mentioning
-  // Excel/PostgreSQL/Tableau, and the "MX·US·DE·ES" country tag on Cross-cultural
-  // teamwork) — nothing here is invented.
+  // Excel/PostgreSQL/Tableau). Cross-cultural teamwork is scoped to the roles
+  // where real people-leadership happened (not every school), so the group
+  // count isn't inflated — nothing here is invented.
   var SKILL_GROUPS = [
     { key:'strategy', name:'Strategy & operations', skills:[
       { name:'Process optimization', exps:['itesm','chr','tel'] },
@@ -1155,7 +1189,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       { name:'Change management & adoption', exps:['odoo'] },
       { name:'Stakeholder management', exps:['odoo','chr','shamrock'] },
       { name:'Executive presentations', exps:['shamrock'] },
-      { name:'Cross-cultural teamwork', exps:['itesm','comillas','cbs','chr','odoo','tel','thunderbird','shamrock'] }
+      { name:'Cross-cultural teamwork', exps:['tel','chr','odoo','shamrock'] }
     ]},
     { key:'ai', name:'AI & digital transformation', skills:[
       { name:'AI strategy & adoption', exps:['thunderbird'] },
@@ -1183,21 +1217,42 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
     return Object.keys(set).length;
   }
 
-  // fill the group cards (ring + count)
+  // fill the group cards (ring + count), animating the ring fill once when
+  // the section scrolls into view (prefers-reduced-motion already strips the
+  // CSS transition globally, so this just changes *when* it jumps).
   var cards = [...document.querySelectorAll('#sk-groups .sk-card')];
-  cards.forEach(function(card){
+  var ringData = cards.map(function(card){
     var key = card.dataset.group;
     var g = SKILL_GROUPS.find(function(x){ return x.key===key; });
     var n = groupExpCount(g);
     card.querySelector('[data-count]').textContent = n;
+    var numEl = card.querySelector('[data-ring-num]');
+    if (numEl) numEl.textContent = n + '/9';
     var ring = card.querySelector('[data-ring]');
     ring.style.strokeDasharray = String(SK_C);
     ring.style.strokeDashoffset = String(SK_C);
-    requestAnimationFrame(function(){ requestAnimationFrame(function(){
-      ring.style.transition = 'stroke-dashoffset 1s cubic-bezier(.2,.7,.2,1)';
-      ring.style.strokeDashoffset = String(SK_C * (1 - n/9));
-    }); });
+    return { ring: ring, n: n };
   });
+  function fillRings(){
+    ringData.forEach(function(rd){
+      rd.ring.style.transition = 'stroke-dashoffset 1s cubic-bezier(.2,.7,.2,1)';
+      rd.ring.style.strokeDashoffset = String(SK_C * (1 - rd.n/9));
+    });
+  }
+  var capsSection = document.getElementById('capabilities');
+  if (capsSection && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          requestAnimationFrame(fillRings);
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.35 });
+    io.observe(capsSection);
+  } else {
+    requestAnimationFrame(fillRings);
+  }
 
   // build the grid
   var theadRow = document.querySelector('#sk-grid thead tr');
@@ -1239,6 +1294,78 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       });
     });
   });
+})();
+</script>
+
+<script>
+(function(){
+  // Each evidence chip below links to a real Journey row (data-exp), reusing
+  // the exact wording already in the old "AI in my path" step list.
+  var AI_STEPS = [
+    { title:'Find where AI creates value', desc:'Map the process, find the repetitive and slow steps, and size the opportunity before choosing a tool.',
+      evidence:[
+        { label:'Driver bid optimization', exp:'shamrock', logo:'img/shamrock.jpg' },
+        { label:'Industrial engineering', exp:'itesm', logo:'img/tec.png' },
+        { label:'SourcingGPT.ai', exp:'sourcinggpt', logo:'img/sourcinggpt.jpg' }
+      ] },
+    { title:'Lead the adoption', desc:'Bring teams and clients along with training, clear communication and support, so new tools are actually used.',
+      evidence:[
+        { label:'ERP rollouts and onboarding', exp:'odoo', logo:'img/odoo.png' }
+      ] },
+    { title:'Manage the people and the change', desc:'Lead cross-functional and cross-cultural teams through new ways of working, under real deadlines.',
+      evidence:[
+        { label:'Sub-team leadership, TSMC', exp:'tel', logo:'img/tel.png' },
+        { label:'Logistics Lead', exp:'chr', logo:'img/chrobinson.jpg' }
+      ] },
+    { title:'Measure the impact', desc:'Set KPIs, track results and use root cause analysis to keep improving after launch.',
+      evidence:[
+        { label:'Labor planning model', exp:'shamrock', logo:'img/shamrock.jpg' },
+        { label:'KPI tracking', exp:'chr', logo:'img/chrobinson.jpg' }
+      ] }
+  ];
+
+  var tiles = [...document.querySelectorAll('#ai-flow .ai-tile')];
+  var detail = document.getElementById('ai-detail');
+  var lineFill = document.getElementById('ai-flow-fill');
+
+  function renderStep(i){
+    tiles.forEach(function(t, j){
+      var on = j === i;
+      t.classList.toggle('on', on);
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+    });
+    if (lineFill) lineFill.style.width = (i / (tiles.length - 1) * 100) + '%';
+
+    var s = AI_STEPS[i];
+    detail.innerHTML =
+      '<span class="n">Step ' + (i + 1) + ' of ' + AI_STEPS.length + '</span>' +
+      '<h3>' + s.title + '</h3>' +
+      '<p>' + s.desc + '</p>' +
+      '<div class="ai-evidence">' + s.evidence.map(function(e){
+        return '<button type="button" class="ai-evlink" data-exp="' + e.exp + '"><span class="lg"><img src="' + e.logo + '" alt=""></span>' + e.label + '</button>';
+      }).join('') + '</div>';
+
+    detail.querySelectorAll('.ai-evlink').forEach(function(b){
+      b.addEventListener('click', function(){
+        if (window.jmOpenExperience) window.jmOpenExperience(b.dataset.exp);
+      });
+    });
+  }
+
+  tiles.forEach(function(tile, i){
+    tile.addEventListener('click', function(){ renderStep(i); });
+    tile.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+        e.preventDefault();
+        var n = (i + (e.key === 'ArrowRight' ? 1 : tiles.length - 1)) % tiles.length;
+        tiles[n].focus();
+        renderStep(n);
+      }
+    });
+  });
+
+  renderStep(0);
 })();
 </script>
 
