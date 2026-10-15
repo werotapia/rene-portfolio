@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rene Tapia Rivera</title>
 <meta name="description" content="Rene Tapia Rivera — engineer by training, strategist by trajectory. Experience across semiconductor manufacturing, logistics, enterprise software and food distribution analytics in Mexico, the U.S., Germany and Spain, now focused on AI strategy and global business transformation.">
-<link rel="canonical" href="https://werotapia.github.io/rene-portfolio/">
+<link rel="canonical" href="https://rene-portfolio-ten.vercel.app/">
 
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Rene Tapia Rivera">
-<meta property="og:url" content="https://werotapia.github.io/rene-portfolio/">
+<meta property="og:url" content="https://rene-portfolio-ten.vercel.app/">
 <meta property="og:title" content="Rene Tapia Rivera — Global Strategy, Consulting &amp; AI Transformation">
 <meta property="og:description" content="Engineer by training, strategist by trajectory. Semiconductor fabs, freight, enterprise software and food distribution analytics across Mexico, the U.S., Germany and Spain — now focused on AI strategy and global business transformation.">
-<meta property="og:image" content="https://werotapia.github.io/rene-portfolio/img/og-image.jpg">
+<meta property="og:image" content="https://rene-portfolio-ten.vercel.app/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Portrait of Rene Tapia Rivera">
@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rene Tapia Rivera — Global Strategy, Consulting &amp; AI Transformation">
 <meta name="twitter:description" content="Engineer by training, strategist by trajectory. Semiconductor fabs, freight, enterprise software and food distribution analytics across Mexico, the U.S., Germany and Spain — now focused on AI strategy and global business transformation.">
-<meta name="twitter:image" content="https://werotapia.github.io/rene-portfolio/img/og-image.jpg">
+<meta name="twitter:image" content="https://rene-portfolio-ten.vercel.app/img/og-image.jpg">
 
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
@@ -79,6 +79,7 @@ a{color:var(--teal)}
 /* hero */
 .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(32px,6vw,72px) clamp(40px,6vw,64px)}
 .hero h1{font-size:clamp(40px,5.6vw,72px);line-height:1;margin-top:20px;font-weight:800}
+.hero h1 .h1-break{display:block}
 .hero h1 .hl{background:linear-gradient(100deg,var(--teal),var(--sun));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .lede{font-size:clamp(18px,1.7vw,21px);color:var(--ink-2);max-width:54ch;margin:22px 0 0}
 .hero .lede b{color:var(--ink);font-weight:600}
@@ -88,9 +89,9 @@ a{color:var(--teal)}
 .btn.solid{background:var(--teal);border-color:var(--teal);color:#fff}
 .btn .arr{transition:transform .2s}
 .btn:hover .arr{transform:translateY(3px)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
-.chips span{font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--ink-2)}
-.chips span.next{background:var(--sun-soft);color:var(--sun);border-color:transparent;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 0;padding:0;list-style:none}
+.chips li{font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--ink-2)}
+.chips li.next{background:var(--sun-soft);color:var(--sun);border-color:transparent;font-weight:600}
 
 .photo{position:relative;max-width:420px;width:100%;justify-self:center}
 .photo .blob{position:absolute;inset:6% -4% -4% 6%;border-radius:36px;background:linear-gradient(145deg,var(--teal),var(--sun));transform:rotate(4deg)}
@@ -170,10 +171,11 @@ section{scroll-margin-top:80px}
 .arrows button:hover{background:var(--ink);color:var(--bg)}
 .hint{font-size:12.5px;color:var(--ink-2);margin-top:12px}
 kbd{font-family:var(--sans);font-weight:600;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 6px;font-size:11px;background:var(--bg)}
-@media (max-width:900px){.journey{grid-template-columns:1fr}.mapbox{position:relative;top:auto;padding:14px}.maphead .where{font-size:22px}.hint{display:none}}
+@media (max-width:900px){.journey{grid-template-columns:minmax(0,1fr)}.mapbox{position:relative;top:auto;padding:14px}.maphead .where{font-size:22px}.hint{display:none}}
 
-.chapters{display:flex;flex-direction:column;gap:26px}
-.ch{--c:var(--teal);background:var(--panel);border:1px solid var(--line);border-radius:26px;overflow:hidden;transition:transform .35s,box-shadow .35s,border-color .35s;scroll-margin-top:96px}
+.chapters{display:flex;flex-direction:column;gap:26px;min-width:0}
+.mapbox{min-width:0}
+.ch{--c:var(--teal);min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:26px;overflow:hidden;transition:transform .35s,box-shadow .35s,border-color .35s;scroll-margin-top:96px}
 .ch.on{box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--c) 55%,var(--line));transform:translateY(-2px)}
 .ch-head{display:flex;gap:18px;align-items:center;padding:22px clamp(20px,3vw,30px);background:linear-gradient(120deg,color-mix(in srgb,var(--c) 16%,var(--panel)),color-mix(in srgb,var(--c) 4%,var(--panel)))}
 .logo{flex:0 0 auto;width:84px;height:84px;background:var(--logo-bg);border-radius:20px;display:grid;place-items:center;padding:10px;box-shadow:0 6px 16px -8px rgba(0,0,0,.25)}
@@ -211,6 +213,16 @@ kbd{font-family:var(--sans);font-weight:600;border:1px solid var(--line);border-
 @media (max-width:560px){.wins{grid-template-columns:1fr}.prow{grid-template-columns:1fr;gap:2px}}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .tags span{font-size:13px;font-weight:500;border-radius:999px;padding:5px 12px;color:var(--ink);background:color-mix(in srgb,var(--c) 10%,var(--panel));border:1px solid color-mix(in srgb,var(--c) 25%,var(--line))}
+.scope-h{margin:18px 0 0;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+.scope-h + ul{margin-top:10px}
+.gp{margin-top:16px}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:20px}
+.shots{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.shots figure{margin:0;min-width:0}
+.shots a{display:block}
+.shots img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;border:1px solid var(--line);display:block}
+.shots figcaption{font-size:12.5px;color:var(--ink-2);margin-top:6px;line-height:1.4}
+.shots-empty{grid-column:1/-1;display:grid;place-items:center;min-height:110px;border-radius:14px;background:color-mix(in srgb,var(--ink) 8%,var(--panel));border:1px dashed var(--line);color:var(--ink-2);font-size:14px;font-weight:600}
 .takeaway{margin-top:20px;padding:16px 18px;background:var(--sun-soft);border-radius:16px;display:flex;gap:14px;align-items:flex-start}
 .takeaway .ic{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--sun);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px}
 .takeaway b{display:block;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--sun)}
@@ -400,6 +412,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
 .ch.on .ch-detail{grid-template-rows:1fr}
 .ch-detail > div{overflow:hidden}
 .ch-detail .ch-head{padding-top:4px}
+@media (max-width:600px){.rtitle,.rsub{white-space:normal;overflow:visible;text-overflow:clip}}
 @media (max-width:520px){.ch-row{gap:10px;padding:12px 14px}.rtitle{font-size:14px}.rsub{font-size:12px}}
 
 /* ---- Visual skills section ---- */
@@ -441,6 +454,8 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
 .sk-grid tbody tr.dim{opacity:.25}
 .sk-dot{width:11px;height:11px;border-radius:50%;background:var(--line);display:inline-block}
 .sk-dot.on{background:var(--teal);cursor:help}
+.sk-dot.on.soon{background:transparent;box-shadow:inset 0 0 0 2px var(--teal)}
+.sk-note{font-size:12.5px;color:var(--ink-2);margin:12px 4px 0}
 @media (max-width:760px){.sk-grid{min-width:720px}}
 </style>
 </head>
@@ -467,15 +482,19 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
   <section class="hero">
     <div>
       <span class="pill"><span class="dot"></span>Open to global strategy, consulting &amp; AI transformation roles</span>
-      <h1>Hi, I’m Rene.<br>Engineer by training, <span class="hl">strategist</span> by trajectory.</h1>
+      <h1>Hi, I’m Rene.<span class="h1-break"> </span>Engineer by training, <span class="hl">strategist</span> by trajectory.</h1>
       <p class="lede">I’ve worked inside <b>semiconductor fabs</b>, <b>freight operations</b>, <b>enterprise software sales</b> and <b>food distribution analytics</b> in Mexico and the U.S., and studied in Mexico, Germany and Spain. That range helps me see how a strategy holds up on the shop floor, in the supply chain and in front of the client. Now I’m focused on <b>how AI is changing the way global companies operate</b>, and how to lead people through that change.</p>
       <div class="cta-row">
         <a class="btn solid" href="#journey">Take the tour <span class="arr">↓</span></a>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
-      <div class="chips">
-        <span>Industrial Engineer</span><span>AI strategy &amp; adoption</span><span>Master of Global Management, Thunderbird</span><span>Phoenix, AZ</span><span class="next">Next: Global Challenge Lab, Hong Kong</span>
-      </div>
+      <ul class="chips">
+        <li>Industrial Engineer</li>
+        <li>AI strategy &amp; adoption</li>
+        <li>Master of Global Management, Thunderbird</li>
+        <li>Phoenix, AZ</li>
+        <li class="next">Next: Global Challenge Lab, Hong Kong</li>
+      </ul>
     </div>
     <div class="photo">
       <div class="blob" aria-hidden="true"></div>
@@ -504,7 +523,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
     <div class="stat"><b>4</b><span>industries, from semiconductors to food distribution</span></div>
     <div class="stat"><b>4</b><span>countries: Mexico, U.S., Germany, Spain</span></div>
     <div class="stat"><b>30+</b><span>stakeholder interviews across 7 departments to rebuild Shamrock’s recall fee strategy</span></div>
-    <div class="stat"><b>3</b><span>AI &amp; digital transformation projects: ERP rollouts at Odoo, a forecasting tool now in production at Shamrock, and AI go-to-market for SourcingGPT.ai</span></div>
+    <div class="stat"><b>3</b><span>AI &amp; digital transformation projects built or delivered (Odoo ERP adoption, Shamrock forecasting tool, GanadIA SaaS) + 1 starting Oct 2026 (SourcingGPT.ai)</span></div>
   </section>
 
   <section id="fit-check">
@@ -516,7 +535,22 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
     <div class="fc-card">
       <div class="fc-progress"><span id="fc-progress-fill"></span></div>
       <div class="fc-stepcount" id="fc-stepcount">Question 1 of 6</div>
-      <div id="fc-quiz"></div>
+      <div id="fc-quiz"><!-- first question is written here so it exists without JavaScript; the script replaces it -->
+        <div class="fc-q"><h3>What role are you hiring for?</h3></div>
+        <div class="fc-options">
+        <button type="button" class="fc-opt" data-key="strategy" aria-pressed="false"><span class="fc-check"></span>Global/business strategy</button>
+        <button type="button" class="fc-opt" data-key="consulting" aria-pressed="false"><span class="fc-check"></span>Management consulting</button>
+        <button type="button" class="fc-opt" data-key="ai" aria-pressed="false"><span class="fc-check"></span>AI &amp; digital transformation</button>
+        <button type="button" class="fc-opt" data-key="ops" aria-pressed="false"><span class="fc-check"></span>Operations &amp; supply chain</button>
+        <button type="button" class="fc-opt" data-key="analytics" aria-pressed="false"><span class="fc-check"></span>Business/operations analytics</button>
+        </div>
+        <div class="fc-nav">
+          <button type="button" class="btn fc-back">← Back</button>
+          <button type="button" class="btn solid fc-next" disabled>Next <span class="arr">→</span></button>
+        </div>
+        <div class="fc-nexthint">Select an option to continue</div>
+      </div>
+      <noscript><p class="fc-hint">The interactive check needs JavaScript. In short: Rene fits operations, analytics, AI and global-strategy roles across semiconductors, logistics, software and food distribution. Use the contact section below to talk.</p></noscript>
       <div id="fc-report" class="fc-report" hidden></div>
     </div>
   </section>
@@ -524,7 +558,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
   <section id="journey">
     <div class="shead">
       <span class="pill">The journey</span>
-      <h2>Nine chapters, six cities, one direction</h2>
+      <h2>Ten chapters, seven cities, one direction</h2>
       <p>Tap a row to expand it, tap a city on the map, or use the arrows. Each stop shows what I did and what it taught me about running a business.</p>
     </div>
 
@@ -532,6 +566,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       <button type="button" data-filter="all" aria-pressed="true">All</button>
       <button type="button" data-filter="work" aria-pressed="false">Work experience</button>
       <button type="button" data-filter="education" aria-pressed="false">Education</button>
+      <button type="button" data-filter="project" aria-pressed="false">Projects</button>
     </div>
 
     <div class="journey">
@@ -540,13 +575,13 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
           <div><div class="lbl">Now viewing</div><div class="where" id="where">Monterrey</div></div>
           <div class="coord" id="coord">25.67° N<br>100.31° W</div>
         </div>
-        <svg viewBox="0 0 600 250" role="img" aria-label="Map of career locations: Monterrey, Madrid, Cologne, San Francisco, Phoenix and Hong Kong" id="map">
+        <svg viewBox="0 0 600 250" role="img" aria-label="Map of career locations: Monterrey, Madrid, Cologne, San Francisco, Phoenix, Hermosillo and Hong Kong" id="map">
           <defs><linearGradient id="routeGrad" x1="0" x2="1"><stop offset="0" stop-color="var(--teal)"/><stop offset="1" stop-color="var(--sun)"/></linearGradient></defs>
           <g id="grat"></g>
           <g id="land"></g>
-          <text class="ocean" x="222" y="150" text-anchor="middle">ATLANTIC</text>
-          <text class="ocean" x="14" y="200">PACIFIC</text>
-          <text class="ocean" x="470" y="236" text-anchor="middle">INDIAN</text>
+          <text class="ocean" aria-hidden="true" x="222" y="150" text-anchor="middle">ATLANTIC</text>
+          <text class="ocean" aria-hidden="true" x="14" y="200">PACIFIC</text>
+          <text class="ocean" aria-hidden="true" x="470" y="236" text-anchor="middle">INDIAN</text>
           <g id="ghost"></g>
           <g id="route"></g>
           <g id="cities"></g>
@@ -554,7 +589,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
         <div class="legend"><span class="sw"></span>Countries where I’ve lived, worked or studied</div>
         <div class="progress"><span id="prog"></span></div>
         <div class="nav-row">
-          <div class="count">Chapter <b id="num">1</b> of <b id="tot">9</b></div>
+          <div class="count">Chapter <b id="num">1</b> of <b id="tot">10</b></div>
           <div class="arrows">
             <button type="button" id="prev" aria-label="Previous chapter">←</button>
             <button type="button" id="next" aria-label="Next chapter">→</button>
@@ -815,6 +850,44 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
           </div></div>
         </article>
 
+        <article class="ch" data-city="hmo" data-exp="ganadia" data-group="project" data-shots="1" style="--c:var(--sun)">
+          <button type="button" class="ch-row" aria-expanded="false">
+            <div class="rlogo"><img src="img/ganadia-mark.svg" alt=""></div>
+            <div class="rmeta">
+              <span class="rbadge">Independent project</span>
+              <div class="rtitle">GanadIA — Livestock Management SaaS</div>
+              <div class="rsub">Independent Project · Hermosillo, Sonora · 2026 – Present</div>
+            </div>
+            <span class="rarrow" aria-hidden="true">⌄</span>
+          </button>
+          <div class="ch-detail"><div>
+          <div class="ch-head">
+            <div class="logo"><img src="img/ganadia-mark.svg" alt="GanadIA logo"></div>
+            <div><span class="kind">Independent project · AI-enabled product</span><h3>From rancher interviews to a production web app</h3></div>
+          </div>
+          <div class="ch-body">
+            <div class="org">GanadIA — Livestock Management SaaS (Independent Project, 2026–Present)</div>
+            <div class="meta"><span>Hermosillo, Sonora, México</span><span>2026 – Present</span></div>
+            <div class="ppanel gp">
+              <div class="prow"><em>Problem</em><p>Mexican cattle ranchers in Sonora manage herds, expenses, sales, and SINIIGA traceability compliance with notebooks, Excel, and memory, so they decide without real cost or compliance data.</p></div>
+              <div class="prow"><em>Approach</em><p>Interviewed ranchers in Sonora to map their recordkeeping, regulatory, and sales workflows; built a competitive analysis and a phased product roadmap; directed the build of a production web app (Next.js, PostgreSQL/Supabase, Vercel) using AI-assisted development.</p></div>
+            </div>
+            <p class="scope-h">What was built</p>
+            <ul class="scope">
+              <li>Herd registration (manual and bulk import).</li>
+              <li>SINIIGA reports.</li>
+              <li>Expense and accounts-payable tracking.</li>
+              <li>Rainfall tracking by paddock.</li>
+              <li>A sell-cattle flow that auto-generates regulatory reports.</li>
+              <li>AI features: natural-language data entry via the Anthropic API, and daily border-crossing status monitoring.</li>
+            </ul>
+            <div class="shots" aria-label="GanadIA screenshots"><div class="shots-empty">Screenshots coming soon</div></div>
+            <div class="tags"><span>Product strategy</span><span>AI-assisted development</span><span>Next.js / Supabase</span><span>Customer discovery</span><span>SINIIGA compliance</span></div>
+            <div class="takeaway"><div class="ic">→</div><div><b>Why it matters</b><p>This shows end-to-end product ownership: discovery, strategy, execution, and QA of an AI-enabled product in a regulated industry.</p></div></div>
+          </div>
+          </div></div>
+        </article>
+
         <article class="ch" data-city="hkg" data-exp="sourcinggpt" data-group="work" style="--c:#6BB42D">
           <button type="button" class="ch-row" aria-expanded="false">
             <div class="rlogo"><img src="img/sourcinggpt.jpg" alt=""></div>
@@ -834,14 +907,15 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
             <div class="org">Thunderbird Global Challenge Lab · Client: SourcingGPT.ai</div>
             <div class="meta"><span>Hong Kong, China</span><span>Oct 24 – Nov 24, 2026</span></div>
             <p style="margin:16px 0 0;color:var(--ink-2);max-width:64ch">SourcingGPT.ai is a vertical AI sourcing platform that helps retailers, e-commerce sellers and procurement teams automate global sourcing: supplier discovery, RFQs, quote comparison and landed-cost calculations. As it moves from beta to broader adoption, our team will help it find and win its best customers.</p>
-            <ul>
-              <li>Build a qualified target list of 100–150 companies across sourcing firms, buying offices, trading companies, retailers and e-commerce businesses, each with a fit score and priority.</li>
-              <li>Create 3–5 tailored outreach sequences by segment: email, LinkedIn, call scripts and a short demo pitch.</li>
-              <li>Reach 50–75 qualified prospects, aiming for 5–10 product demos, and track every response in a pipeline dashboard.</li>
-              <li>Deliver a market feedback report on response rates, objections and the most promising segments for multi-seat adoption.</li>
+            <p class="scope-h">Project scope (Oct–Nov 2026)</p>
+            <ul class="scope">
+              <li>Objective: build a qualified target list of 100–150 companies across sourcing firms, buying offices, trading companies, retailers and e-commerce businesses, each with a fit score and priority.</li>
+              <li>Planned: create 3–5 tailored outreach sequences by segment: email, LinkedIn, call scripts and a short demo pitch.</li>
+              <li>Planned: outreach to 50–75 qualified prospects, targeting 5–10 product demos, with every response tracked in a pipeline dashboard.</li>
+              <li>Planned deliverable: a market feedback report on response rates, objections and the most promising segments for multi-seat adoption.</li>
             </ul>
             <div class="tags"><span>AI adoption</span><span>Go-to-market strategy</span><span>Customer segmentation</span><span>B2B SaaS sales</span><span>AI in procurement</span><span>Asia market</span></div>
-            <div class="takeaway"><div class="ic">★</div><div><b>Why it matters</b><p>This is AI strategy consulting for a real client: find which companies gain the most from AI, test the message and recommend where to grow, in Asia’s global trade hub.</p></div></div>
+            <div class="takeaway"><div class="ic">★</div><div><b>Why it matters</b><p>This will be AI strategy consulting for a real client: find which companies gain the most from AI, test the message and recommend where to grow, in Asia’s global trade hub.</p></div></div>
           </div>
           </div></div>
         </article>
@@ -886,7 +960,8 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
           <button type="button" class="ai-logochip" data-label="ERP &amp; automation · Odoo"><img src="img/odoo.png" alt="Odoo"></button>
           <button type="button" class="ai-logochip" data-label="Predictive analytics · Shamrock"><img src="img/shamrock.jpg" alt="Shamrock Foods"></button>
           <button type="button" class="ai-logochip" data-label="AI strategy &amp; transformation · Thunderbird"><img src="img/thunderbird.png" alt="Thunderbird"></button>
-          <button type="button" class="ai-logochip" data-label="AI sourcing platform go-to-market · SourcingGPT.ai, Hong Kong"><img src="img/sourcinggpt.jpg" alt="SourcingGPT.ai"></button>
+          <button type="button" class="ai-logochip" data-label="AI-enabled product (Anthropic API data entry) · GanadIA"><img src="img/ganadia-mark.svg" alt="GanadIA"></button>
+          <button type="button" class="ai-logochip" data-label="AI sourcing platform go-to-market · SourcingGPT.ai, Hong Kong (starts Oct 2026)"><img src="img/sourcinggpt.jpg" alt="SourcingGPT.ai"></button>
         </div>
       </div>
     </div>
@@ -902,34 +977,34 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       <button type="button" class="sk-card" data-group="strategy">
         <div class="sk-card-top">
           <div class="sk-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
-          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring/></svg><div class="sk-ring-num" data-ring-num>0/9</div></div>
+          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring style="stroke-dasharray:144.513;stroke-dashoffset:64.228"/></svg><div class="sk-ring-num" data-ring-num>5/9</div></div>
         </div>
         <h3>Strategy &amp; operations</h3>
-        <p class="used">Used in <b data-count>0</b> of 9 experiences</p>
+        <p class="used">Used in <b data-count>5</b> of 9 experiences</p>
       </button>
       <button type="button" class="sk-card" data-group="data">
         <div class="sk-card-top">
           <div class="sk-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
-          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring/></svg><div class="sk-ring-num" data-ring-num>0/9</div></div>
+          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring style="stroke-dasharray:144.513;stroke-dashoffset:96.342"/></svg><div class="sk-ring-num" data-ring-num>3/9</div></div>
         </div>
         <h3>Data &amp; analysis</h3>
-        <p class="used">Used in <b data-count>0</b> of 9 experiences</p>
+        <p class="used">Used in <b data-count>3</b> of 9 experiences</p>
       </button>
       <button type="button" class="sk-card" data-group="leadership">
         <div class="sk-card-top">
           <div class="sk-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.5c2.4.2 4 1.8 4.6 4.5"/></svg></div>
-          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring/></svg><div class="sk-ring-num" data-ring-num>0/9</div></div>
+          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring style="stroke-dasharray:144.513;stroke-dashoffset:80.285"/></svg><div class="sk-ring-num" data-ring-num>4/9</div></div>
         </div>
         <h3>Leadership &amp; management</h3>
-        <p class="used">Used in <b data-count>0</b> of 9 experiences</p>
+        <p class="used">Used in <b data-count>4</b> of 9 experiences</p>
       </button>
       <button type="button" class="sk-card" data-group="ai">
         <div class="sk-card-top">
           <div class="sk-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
-          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring/></svg><div class="sk-ring-num" data-ring-num>0/9</div></div>
+          <div class="sk-ring-wrap"><svg class="sk-ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="23"/><circle class="fill" cx="28" cy="28" r="23" data-ring style="stroke-dasharray:144.513;stroke-dashoffset:96.342"/></svg><div class="sk-ring-num" data-ring-num>3/9</div></div>
         </div>
         <h3>AI &amp; digital transformation</h3>
-        <p class="used">Used in <b data-count>0</b> of 9 experiences</p>
+        <p class="used">Used in <b data-count>3</b> of 9 experiences</p>
       </button>
     </div>
     <div class="sk-grid-wrap">
@@ -938,6 +1013,16 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
         <tbody></tbody>
       </table>
     </div>
+    <p class="sk-note">Hollow dot = planned (SourcingGPT.ai, Oct 2026). Planned projects are shown but not counted in the “Used in X of 9” totals.</p>
+    <noscript>
+      <h3>Skills and where I used them</h3>
+      <ul>
+        <li><b>Strategy &amp; operations</b> (5 of 9 experiences): Process optimization (Tecnológico de Monterrey, C.H. Robinson, Tokyo Electron); Complex problem solving (Tokyo Electron); Project management (C.H. Robinson, Tokyo Electron); Supply chain strategy (C.H. Robinson, Shamrock); Cost modeling &amp; pricing (Shamrock); Product strategy (GanadIA).</li>
+        <li><b>Data &amp; analysis</b> (3 of 9): Excel for Consulting (Thunderbird); SQL · Databricks &amp; PostgreSQL (Shamrock, Thunderbird); Power BI &amp; Tableau (Shamrock, Thunderbird); Forecasting &amp; optimization (Shamrock); KPI design &amp; tracking (C.H. Robinson).</li>
+        <li><b>Leadership &amp; management</b> (4 of 9): Team leadership (Tokyo Electron, C.H. Robinson); Change management &amp; adoption (Odoo); Stakeholder management (Odoo, C.H. Robinson, Shamrock); Executive presentations (Shamrock); Cross-cultural teamwork (Tokyo Electron, C.H. Robinson, Odoo, Shamrock).</li>
+        <li><b>AI &amp; digital transformation</b> (3 of 9): AI strategy &amp; adoption (Thunderbird); ERP &amp; process automation (Odoo); AI-assisted development (GanadIA); Next.js / Supabase (GanadIA); AI in procurement &amp; sourcing (SourcingGPT.ai, planned for Oct 2026, not counted).</li>
+      </ul>
+    </noscript>
   </section>
 
   <section id="industries">
@@ -957,7 +1042,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
   <section id="education">
     <div class="shead">
       <span class="pill">Education</span>
-      <h2>Learning on two continents</h2>
+      <h2>Learning across four countries</h2>
       <p>The four degrees and programs now live in the Journey timeline above, alongside the work experience they bracket. Here's the rest: languages and certifications.</p>
     </div>
     <div class="extra">
@@ -1007,6 +1092,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
     cgn:{name:"Cologne",lat:50.94,lon:6.96,dx:-12,dy:-8,anchor:"end"},
     sfo:{name:"San Francisco",lat:37.77,lon:-122.42,dx:2,dy:-14,anchor:"start"},
     phx:{name:"Phoenix",lat:33.45,lon:-112.07,dx:12,dy:5,anchor:"start"},
+    hmo:{name:"Hermosillo",lat:29.07,lon:-110.96,dx:-6,dy:24,anchor:"middle"},
     hkg:{name:"Hong Kong",lat:22.32,lon:114.17,dx:-12,dy:18,anchor:"end"}
   };
   const NS="http://www.w3.org/2000/svg";
@@ -1084,6 +1170,32 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
     return vis[0];
   }
 
+  function loadShots(ch){
+    const box=ch.querySelector('.shots'); if(!box||box.dataset.loaded) return;
+    box.dataset.loaded='1';
+    // Probe img/ganadia/ganadia-1..3.jpg one at a time; stop at the first missing file
+    // so an empty folder costs a single request and leaves the "coming soon" box.
+    const CAPTIONS=['Herd, expenses and rainfall in one dashboard.','Selling cattle auto-generates the SINIIGA compliance report.','Natural-language data entry: a plain sentence becomes a structured expense record.'];
+    const found=[];
+    (function next(n){
+      if(n>3){ show(); return; }
+      const im=new Image();
+      im.onload=()=>{ im.alt='GanadIA screenshot: '+CAPTIONS[n-1]; found.push({n,im}); next(n+1); };
+      im.onerror=show;
+      im.src='img/ganadia/ganadia-'+n+'.jpg';
+    })(1);
+    function show(){
+      if(!found.length) return;
+      box.innerHTML='';
+      found.forEach(({n,im})=>{
+        const fig=document.createElement('figure'), a=document.createElement('a'), cap=document.createElement('figcaption');
+        a.href=im.src; a.target='_blank'; a.rel='noopener'; a.setAttribute('aria-label','Open screenshot '+n+' full size');
+        im.loading='lazy'; a.appendChild(im); cap.textContent=CAPTIONS[n-1];
+        fig.appendChild(a); fig.appendChild(cap); box.appendChild(fig);
+      });
+    }
+  }
+
   function setActive(i){
     if(i===cur)return;
     if(cur>=0&&rowBtns[cur]) rowBtns[cur].setAttribute('aria-expanded','false');
@@ -1091,6 +1203,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
     chapters.forEach((c,j)=>c.classList.toggle('on',j===i));
     if(i<0) return;
     if(rowBtns[i]) rowBtns[i].setAttribute('aria-expanded','true');
+    if(chapters[i].dataset.shots) loadShots(chapters[i]);
     segs.forEach((s,j)=>{if(s)s.style.strokeDashoffset=(j<i)?0:s._L});
     const visited=new Set(seq.slice(0,i+1));
     Object.entries(cityEls).forEach(([k,el])=>{el.classList.toggle('on',k===seq[i]);el.classList.toggle('done',visited.has(k)&&k!==seq[i])});
@@ -1175,7 +1288,8 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       { name:'Complex problem solving', exps:['tel'] },
       { name:'Project management', exps:['chr','tel'] },
       { name:'Supply chain strategy', exps:['chr','shamrock'] },
-      { name:'Cost modeling & pricing', exps:['shamrock'] }
+      { name:'Cost modeling & pricing', exps:['shamrock'] },
+      { name:'Product strategy', exps:['ganadia'] }
     ]},
     { key:'data', name:'Data & analysis', skills:[
       { name:'Excel for Consulting', exps:['thunderbird'] },
@@ -1195,7 +1309,8 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       { name:'AI strategy & adoption', exps:['thunderbird'] },
       { name:'AI in procurement & sourcing', exps:['sourcinggpt'] },
       { name:'ERP & process automation', exps:['odoo'] },
-      { name:'Generative AI tools', exps:[] }
+      { name:'AI-assisted development', exps:['ganadia'] },
+      { name:'Next.js / Supabase', exps:['ganadia'] }
     ]}
   ];
   var EXPS = [
@@ -1207,13 +1322,18 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
     { key:'tel', name:'Tokyo Electron', logo:'img/tel.png' },
     { key:'thunderbird', name:'Thunderbird', logo:'img/thunderbird.png' },
     { key:'shamrock', name:'Shamrock Foods', logo:'img/shamrock.jpg' },
-    { key:'sourcinggpt', name:'SourcingGPT.ai (upcoming)', logo:'img/sourcinggpt.jpg' }
+    { key:'ganadia', name:'GanadIA (independent project)', logo:'img/ganadia-mark.svg' },
+    { key:'sourcinggpt', name:'SourcingGPT.ai (upcoming)', logo:'img/sourcinggpt.jpg', upcoming:true }
   ];
+  var DONE_TOTAL = EXPS.filter(function(e){ return !e.upcoming; }).length;
+  var UPCOMING = {};
+  EXPS.forEach(function(e){ if (e.upcoming) UPCOMING[e.key] = true; });
   var SK_R = 23, SK_C = 2 * Math.PI * SK_R;
 
   function groupExpCount(g){
     var set = {};
-    g.skills.forEach(function(s){ s.exps.forEach(function(e){ set[e]=1; }); });
+    // upcoming projects (e.g. SourcingGPT.ai, Oct 2026) are shown but not counted
+    g.skills.forEach(function(s){ s.exps.forEach(function(e){ if (!UPCOMING[e]) set[e]=1; }); });
     return Object.keys(set).length;
   }
 
@@ -1227,7 +1347,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
     var n = groupExpCount(g);
     card.querySelector('[data-count]').textContent = n;
     var numEl = card.querySelector('[data-ring-num]');
-    if (numEl) numEl.textContent = n + '/9';
+    if (numEl) numEl.textContent = n + '/' + DONE_TOTAL;
     var ring = card.querySelector('[data-ring]');
     ring.style.strokeDasharray = String(SK_C);
     ring.style.strokeDashoffset = String(SK_C);
@@ -1236,10 +1356,10 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
   function fillRings(){
     ringData.forEach(function(rd){
       rd.ring.style.transition = 'stroke-dashoffset 1s cubic-bezier(.2,.7,.2,1)';
-      rd.ring.style.strokeDashoffset = String(SK_C * (1 - rd.n/9));
+      rd.ring.style.strokeDashoffset = String(SK_C * (1 - rd.n/DONE_TOTAL));
     });
   }
-  var capsSection = document.getElementById('capabilities');
+  var capsSection = document.getElementById('sk-groups'); // observe the card row, not the tall section (a phone viewport never shows 35% of it)
   if (capsSection && 'IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
@@ -1248,7 +1368,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
           io.disconnect();
         }
       });
-    }, { threshold: 0.35 });
+    }, { threshold: 0.2 });
     io.observe(capsSection);
   } else {
     requestAnimationFrame(fillRings);
@@ -1274,7 +1394,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
         var td = document.createElement('td');
         var used = s.exps.indexOf(e.key) !== -1;
         var dot = document.createElement('span');
-        dot.className = 'sk-dot' + (used ? ' on' : '');
+        dot.className = 'sk-dot' + (used ? ' on' : '') + (used && e.upcoming ? ' soon' : '');
         if (used) dot.title = e.name + ' — ' + s.name;
         td.appendChild(dot);
         tr.appendChild(td);
@@ -1306,11 +1426,13 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       evidence:[
         { label:'Driver bid optimization', exp:'shamrock', logo:'img/shamrock.jpg' },
         { label:'Industrial engineering', exp:'itesm', logo:'img/tec.png' },
-        { label:'SourcingGPT.ai', exp:'sourcinggpt', logo:'img/sourcinggpt.jpg' }
+        { label:'GanadIA: rancher discovery', exp:'ganadia', logo:'img/ganadia-mark.svg' },
+        { label:'SourcingGPT.ai (upcoming)', exp:'sourcinggpt', logo:'img/sourcinggpt.jpg' }
       ] },
     { title:'Lead the adoption', desc:'Bring teams and clients along with training, clear communication and support, so new tools are actually used.',
       evidence:[
-        { label:'ERP rollouts and onboarding', exp:'odoo', logo:'img/odoo.png' }
+        { label:'ERP adoption and onboarding', exp:'odoo', logo:'img/odoo.png' },
+        { label:'GanadIA: AI-assisted data entry', exp:'ganadia', logo:'img/ganadia-mark.svg' }
       ] },
     { title:'Manage the people and the change', desc:'Lead cross-functional and cross-cultural teams through new ways of working, under real deadlines.',
       evidence:[
@@ -1385,7 +1507,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
     { id:'q1', type:'single', text:'What role are you hiring for?', options:[
       { key:'strategy', label:'Global/business strategy', tier:'strong', exp:'thunderbird', ev:'Master of Global Management at Thunderbird, focused on global and business strategy, plus presenting strategic recommendations to ~100 leaders, including the president, at Shamrock.' },
       { key:'consulting', label:'Management consulting', tier:'partial', exp:'shamrock', ev:'Three analytics projects at Shamrock run like consulting engagements — problem, analysis, recommendation — plus an in-progress Excel for Consulting certification. Not time at a traditional strategy firm, but the same muscle.' },
-      { key:'ai', label:'AI & digital transformation', tier:'strong', exp:'thunderbird', ev:'AI strategy coursework at Thunderbird, an ERP rollout led at Odoo, and an upcoming AI go-to-market project with SourcingGPT.ai in Hong Kong.' },
+      { key:'ai', label:'AI & digital transformation', tier:'strong', exp:'thunderbird', ev:'AI strategy coursework at Thunderbird, supported ERP adoption at Odoo, and an upcoming AI go-to-market project with SourcingGPT.ai in Hong Kong.' },
       { key:'ops', label:'Operations & supply chain', tier:'strong', exp:'chr', ev:'Logistics Lead at C.H. Robinson and Field Engineer at Tokyo Electron — both hands-on operations and supply chain roles.' },
       { key:'analytics', label:'Business/operations analytics', tier:'strong', exp:'shamrock', ev:'Business Analyst on Shamrock Foods’ Operations Analytics team, building forecasting and labor models in SQL and Power BI.' }
     ]},
@@ -1395,7 +1517,7 @@ footer{font-size:13px;color:var(--ink-2);padding-bottom:40px;display:flex;justif
       { key:'leading', label:'Leading teams', tier:'strong', exp:'tel', ev:'Led sub-teams on TSMC projects at Tokyo Electron, and was promoted to Logistics Lead at C.H. Robinson within 12 months.' },
       { key:'intl', label:'International/cross-cultural work', tier:'strong', exp:'cbs', ev:'Studied and worked across Mexico, the U.S., Germany and Spain, with an upcoming project in Hong Kong.' },
       { key:'process', label:'Process improvement', tier:'strong', exp:'tel', ev:'Root cause analysis at Tokyo Electron, routing optimization at C.H. Robinson, and driver-bid optimization at Shamrock.' },
-      { key:'aiadopt', label:'AI adoption', tier:'strong', exp:'odoo', ev:'AI strategy coursework at Thunderbird, leading ERP adoption at Odoo, and AI go-to-market work with SourcingGPT.ai.' },
+      { key:'aiadopt', label:'AI adoption', tier:'strong', exp:'odoo', ev:'AI strategy coursework at Thunderbird, supported ERP adoption at Odoo, and an upcoming AI go-to-market project with SourcingGPT.ai.' },
       { key:'technical', label:'Technical depth', tier:'partial', exp:'tel', ev:'Technical through applied engineering and data work — SQL, Databricks, and hands-on semiconductor fab equipment at Tokyo Electron — rather than a software engineering background.' }
     ]},
     { id:'q3', type:'single', text:'Industry?', options:[
